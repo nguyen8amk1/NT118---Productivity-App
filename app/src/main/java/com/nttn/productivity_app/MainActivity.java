@@ -1,17 +1,10 @@
 package com.nttn.productivity_app;
 
-import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-// TODO: (nttn) show momentum home page
+// TODO: (nttn) show momentum home page [X]
+// TODO: (nttn) add good habits to the game [] @Current
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         // setContentView(R.layout.activity_main);
-        setContentView(R.layout.fragment_home);
-        // BottomNavigationView navView = findViewById(R.id.nav_view);
+        setContentView(R.layout.goodhabits);
 
+        // BottomNavigationView navView = findViewById(R.id.nav_view);
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 //                R.id.navigation_home, R.id.navigation_settings, R.id.navigation_following, R.id.navigation_add_habit, R.id.navigation_sharing)
 //                .build();

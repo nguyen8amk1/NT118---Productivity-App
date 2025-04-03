@@ -25,4 +25,6 @@
     <string name="view_all_habit_events">Habit Events</string>
     <string name="home_image_description">Fixme</string>
     <string name="home_instructions">Fixme</string>
+    <string name="menu_home">Fixme: menu home</string>
+    <string name="add_new_item">add new item</string>
 </resources>

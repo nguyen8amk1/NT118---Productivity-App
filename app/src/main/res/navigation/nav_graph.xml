@@ -12,6 +12,12 @@
         android:label="@string/dashboard_home"
         tools:layout="@layout/fragment_home" />
 
+    <fragment
+        android:id="@+id/habits_list"
+        android:name="com.nttn.productivity_app.habits.Habits"
+        android:label="@string/menu_home"
+        tools:layout="@layout/habit_lists"/>
+
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_following"-->
 <!--        android:name="com.example.momentum.following.FollowingFragment"-->
