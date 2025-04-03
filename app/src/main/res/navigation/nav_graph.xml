@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/allTodoFragment">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/allTodoFragment"
-        android:name="com.example.to_doapp.ui.alltodo.AllTodoFragment"
-        android:label="fragment_all_todo"
-        tools:layout="@layout/fragment_all_todo">
-        <action
-            android:id="@+id/action_allTodoFragment_to_addEditTodoFragment"
-            app:destination="@id/addEditTodoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addEditTodoFragment"
-        android:name="com.example.to_doapp.ui.editTodo.EditTodoFragment"
-        android:label="fragment_add_todo"
-        tools:layout="@layout/fragment_edit_todo">
-        <argument
-            android:name="todoItem"
-            app:argType="com.example.to_doapp.data.TodoItem" />
-    </fragment>
+        android:id="@+id/navigation_home"
+        android:name="com.nttn.productivity_app.home.HomeFragment"
+        android:label="@string/dashboard_home"
+        tools:layout="@layout/fragment_home" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_following"-->
+<!--        android:name="com.example.momentum.following.FollowingFragment"-->
+<!--        android:label="@string/dashboard_following"-->
+<!--        tools:layout="@layout/fragment_following" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_add_habit"-->
+<!--        android:name="com.example.momentum.add.AddFragment"-->
+<!--        android:label="@string/dashboard_add"-->
+<!--        tools:layout="@layout/fragment_add_habit" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_sharing"-->
+<!--        android:name="com.example.momentum.sharing.SharingFragment"-->
+<!--        android:label="@string/dashboard_sharing"-->
+<!--        tools:layout="@layout/fragment_sharing" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_settings"-->
+<!--        android:name="com.example.momentum.settings.SettingsFragment"-->
+<!--        android:label="@string/dashboard_settings"-->
+<!--        tools:layout="@layout/fragment_settings" />-->
+
 </navigation>
