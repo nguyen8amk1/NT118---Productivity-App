@@ -44,21 +44,6 @@ import com.nttn.productivity_app.util.DialogUtils;
 
 import java.time.LocalDateTime;
 
-// TODO: (nttn) add the engine into the app [X]
-// TODO: (nttn) show an alert [X]
-// TODO: (nttn) show a custom alert [X]
-// TODO: (nttn) insert custom habit to the recycler view [X]
-// TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits [X]
-    // have different stub data for each screen to differentiate
-// TODO: (nttn) custom the task creation ui                 [X]
-// TODO: (nttn) add time picker right after the date picker [X]
-// TODO: (nttn) locate the logic of the app                 []
-    // NOTE: (nttn) What's logic does the app currently have ??
-    // 1. habit crud (add habit, reset progress, Edit habit, delete habit):
-          // -> Today Habit Fragment, All Habit Fragment
-    // 2. progress timer (increment every 1s): HabitViewHolder
-    // -> TODO: (nttn) Gather all distributed logic into a HabitService
-
 // Layout Inflation: Convert xml object to view object, by calling inflater.inflate(xml object, );
 // In Recycler view:
 //      inflating used to create item views that will be displayed in the list of grid.
@@ -68,14 +53,24 @@ import java.time.LocalDateTime;
 // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
 // 4. Layout manager: (Manages the layout to display list items)
 
-
-// TODO: (nttn) Adjust the Habit to fit our use case     [] @Current
-
+// TODO: (nttn) add the engine into the app [X]
+// TODO: (nttn) show an alert [X]
+// TODO: (nttn) show a custom alert [X]
+// TODO: (nttn) insert custom habit to the recycler view [X]
+// TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits [X]
+    // have different stub data for each screen to differentiate
+// TODO: (nttn) custom the task creation ui                 [X]
+// TODO: (nttn) add time picker right after the date picker [X]
+// TODO: (nttn) locate the logic of the app                 [X]
+    // NOTE: (nttn) What's logic does the app currently have ??
+    // 1. habit crud (add habit, reset progress, Edit habit, delete habit):
+          // -> Today Habit Fragment, All Habit Fragment
+    // 2. progress timer (increment every 1s): HabitViewHolder
+    // -> TODO: (nttn) Gather all distributed logic into a HabitService
+// TODO: (nttn) Adjust the Habit to fit our use case     [X]
+// TODO: (nttn) Make the habit display a time left format, make it count down [] @Current
 // TODO: (nttn) custom the logo (nt118 - group 2) xml    []
-
 // TODO: (nttn) insert custom todo (not habit) to the recycler view  []
-// TODO: (nttn) todo room db repo implementation         []
-// TODO: (nttn) hooks the engine to the app              []
 // TODO: (nttn) hooks the engine to the home page        []
 
 public class MainActivity extends AppCompatActivity {

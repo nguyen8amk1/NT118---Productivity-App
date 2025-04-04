@@ -13,6 +13,7 @@ import com.nttn.productivity_app.util.ProgressTimeFormatter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
@@ -39,7 +40,9 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public void setHabitProgressTime(long timeInMillis) {
         if (textHabitProgressTimer != null) {
-            textHabitProgressTimer.setText(ProgressTimeFormatter.parse(timeInMillis));
+            String myStr = "You have %s time left";
+            String result = String.format(myStr, ProgressTimeFormatter.parse(timeInMillis));
+            textHabitProgressTimer.setText(result);
         }
     }
 
@@ -63,6 +66,7 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         Habit currentHabit = habitRecyclerViewAdapter
                 .getHabitList()
                 .get(getAbsoluteAdapterPosition());
+        System.out.println("Habit, started at: " + currentHabit.startedAt.toString() + ", ended at: " + currentHabit.endedAt.toString());
 
         if (itemId == R.id.habit_row_card_layout) {
             onHabitClickListener.onHabitClick(currentHabit);
@@ -107,7 +111,12 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         @Override
         public void onTick(long millisUntilFinished) {
-            currentTime += countDownInterval;
+            Habit currentHabit = habitRecyclerViewAdapter
+                    .getHabitList()
+                    .get(getAbsoluteAdapterPosition());
+            Date now = new Date();
+            long timeLeftInMillis = currentHabit.endedAt.getTime() - now.getTime();
+            currentTime = timeLeftInMillis;
             setHabitProgressTime(currentTime);
         }
 
