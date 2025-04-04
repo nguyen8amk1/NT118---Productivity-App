@@ -16,13 +16,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.nttn.productivity_app.R;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
 import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.nttn.productivity_app.ui.habit.OnHabitClickListener;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,8 +30,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements OnHabitClickListener {
-
+public class AllHabitsFragment extends Fragment implements OnHabitClickListener {
     private static final String TAG = "HOME_FRAGMENT";
 
     private RecyclerView habitRecyclerView;
@@ -53,10 +52,10 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
         // In Recycler view:
         //      inflating used to create item views that will be displayed in the list of grid.
         // Recycler view pattern:
-            // 1. Recycler view: (the main view)
-            // 2. Adapter: (Bind data to views)
-            // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
-            // 4. Layout manager: (Manages the layout to display list items)
+        // 1. Recycler view: (the main view)
+        // 2. Adapter: (Bind data to views)
+        // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
+        // 4. Layout manager: (Manages the layout to display list items)
 
 
         habitRecyclerView = root.findViewById(R.id.habit_recycler_view);
@@ -68,11 +67,11 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
         ).create(HabitAndroidViewModel.class);
 
         final List<Habit> habits = new ArrayList<>();
-        habits.add(new Habit("today's hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("all hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("all hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("all hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("all hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("all hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
         habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
         habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
 

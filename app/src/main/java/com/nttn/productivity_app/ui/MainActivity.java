@@ -47,9 +47,16 @@ import java.time.LocalDateTime;
 // TODO: (nttn) add the engine into the app [X]
 // TODO: (nttn) show an alert [X]
 // TODO: (nttn) show a custom alert [X]
-// TODO: (nttn) todo room db repo implementation []    @Current
-// TODO: (nttn) replace the old habit with our Todo [] @Current
-// TODO: (nttn) hooks the engine to the home page []
+// TODO: (nttn) insert custom habit to the recycler view [X]
+// TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits []  @Current
+    // have different stub data for each screen to differentiate
+// TODO: (nttn) custom the task creation []
+// TODO: (nttn) custom the logo (nt118 - group 2) xml []
+// TODO: (nttn) insert custom todo to the recycler view  []
+// TODO: (nttn) todo room db repo implementation         []
+// TODO: (nttn) todo room db repo implementation         []
+// TODO: (nttn) hooks the engine to the app              []
+// TODO: (nttn) hooks the engine to the home page        []
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "ACTIVITY_MAIN";
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_stats)
+                R.id.nav_today_habits, R.id.nav_stats)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
