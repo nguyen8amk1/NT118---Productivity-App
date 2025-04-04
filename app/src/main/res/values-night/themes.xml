@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.GoodHabits.DayNight" parent="Theme.GoodHabits.Dark"/>
+    <style name="Theme.ProductivityApp.DayNight" parent="Theme.ProductivityApp.Dark"/>
 
-    <style name="Theme.GoodHabits.Dark" parent="Theme.GoodHabits">
+    <style name="Theme.ProductivityApp.Dark" parent="Theme.ProductivityApp">
 
         <!--Color-->
         <item name="colorPrimary">@color/color_palette_blue_200</item>
