@@ -13,15 +13,21 @@ import java.util.List;
 public class HabitAndroidViewModel extends AndroidViewModel {
     private final iHabitRepository habitRepository;
     public final LiveData<List<Habit>> allHabits;
+    public final LiveData<List<Habit>> todayHabits;
 
     public HabitAndroidViewModel(@NonNull Application application, @NonNull iHabitRepository habitRepository) {
         super(application);
         this.habitRepository = habitRepository;
         allHabits = habitRepository.getAllHabits();
+        todayHabits = habitRepository.getTodayHabits();
     }
 
     public LiveData<List<Habit>> getAllHabits() {
         return allHabits;
+    }
+
+    public LiveData<List<Habit>> getTodayHabits() {
+        return todayHabits;
     }
 
     public LiveData<Habit> getHabit(long habitId) {
