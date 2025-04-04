@@ -1,6 +1,6 @@
-package com.github.tharindusathis.goodhabits.ui.habit;
+package com.nttn.productivity_app.ui.habit;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
+import com.nttn.productivity_app.model.Habit;
 
 public interface OnHabitClickListener {
     void onHabitClick(Habit habit);

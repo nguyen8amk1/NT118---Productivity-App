@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui;
+package com.nttn.productivity_app.ui;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
-import com.github.tharindusathis.goodhabits.R;
+import com.nttn.productivity_app.R;
 
-import static com.github.tharindusathis.goodhabits.util.Utils.setThemeNightMode;
+import static com.nttn.productivity_app.util.Utils.setThemeNightMode;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 

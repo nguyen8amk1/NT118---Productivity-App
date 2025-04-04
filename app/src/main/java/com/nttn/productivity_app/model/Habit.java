@@ -1,21 +1,39 @@
 package com.nttn.productivity_app.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
-import java.util.Objects;
 
+@Entity(tableName = "habit_table")
 public class Habit {
-    private long habitId;
-    private String title;
-    private Date startedAt;
-    private Date createdDate;
+    @ColumnInfo(name = "habit_id")
+    @PrimaryKey(autoGenerate = true)
+    public long habitId;
 
-    public Habit(String title, Date startedAt, Date createdDate) {
+    @NonNull
+    public String title;
+
+    @ColumnInfo(name = "started_at")
+    public Date startedAt;
+
+    @ColumnInfo(name = "created_at")
+    public Date createdDate;
+
+    /**
+     * @deprecated
+     */
+    public Habit(@NotNull String title, Date startedAt, Date createdDate) {
         this.title = title;
         this.startedAt = startedAt;
         this.createdDate = createdDate;
     }
 
-    public Habit(String title, Date startedAt) {
+    public Habit(@NotNull String title, Date startedAt) {
         this.title = title;
         this.startedAt = startedAt;
         this.createdDate = new Date();
@@ -28,15 +46,12 @@ public class Habit {
         return habitId;
     }
 
-    public void setHabitId(long habitId) {
-        this.habitId = habitId;
-    }
-
+    @NotNull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(@NotNull String title) {
         this.title = title;
     }
 
@@ -56,6 +71,7 @@ public class Habit {
         this.createdDate = createdDate;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "Habit{" +
@@ -70,15 +86,12 @@ public class Habit {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Habit habit = (Habit) o;
-        return habitId == habit.habitId &&
-                Objects.equals(title, habit.title) &&
-                Objects.equals(startedAt, habit.startedAt) &&
-                Objects.equals(createdDate, habit.createdDate);
+
+        if (!title.equals(habit.title)) return false;
+        if (!startedAt.equals(habit.startedAt)) return false;
+        return createdDate.equals(habit.createdDate);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(habitId, title, startedAt, createdDate);
-    }
 }

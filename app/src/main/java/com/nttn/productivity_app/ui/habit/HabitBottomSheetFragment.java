@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui.habit;
+package com.nttn.productivity_app.ui.habit;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
-import com.github.tharindusathis.goodhabits.model.HabitAndroidViewModel;
-import com.github.tharindusathis.goodhabits.util.Utils;
+import com.nttn.productivity_app.model.Habit;
+import com.nttn.productivity_app.model.HabitAndroidViewModel;
+import com.nttn.productivity_app.util.Utils;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import android.text.TextUtils;
@@ -19,7 +19,7 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.github.tharindusathis.goodhabits.R;
+import com.nttn.productivity_app.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.snackbar.Snackbar;
 

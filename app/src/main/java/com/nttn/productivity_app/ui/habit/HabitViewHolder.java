@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui.habit;
+package com.nttn.productivity_app.ui.habit;
 
 import android.os.CountDownTimer;
 import android.view.View;
@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.tharindusathis.goodhabits.R;
-import com.github.tharindusathis.goodhabits.model.Habit;
-import com.github.tharindusathis.goodhabits.util.ProgressTimeFormatter;
+import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.model.Habit;
+import com.nttn.productivity_app.util.ProgressTimeFormatter;
 
 import org.jetbrains.annotations.NotNull;
 

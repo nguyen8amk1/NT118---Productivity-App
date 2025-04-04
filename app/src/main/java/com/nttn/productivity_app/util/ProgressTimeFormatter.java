@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.util;
+package com.nttn.productivity_app.util;
 
 public final class ProgressTimeFormatter {
 

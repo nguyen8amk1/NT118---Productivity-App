@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui.stats;
+package com.nttn.productivity_app.ui.stats;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.github.tharindusathis.goodhabits.R;
-import com.github.tharindusathis.goodhabits.model.HabitAndroidViewModel;
-import com.github.tharindusathis.goodhabits.util.ProgressTimeFormatter;
+import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.model.HabitAndroidViewModel;
+import com.nttn.productivity_app.util.ProgressTimeFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;

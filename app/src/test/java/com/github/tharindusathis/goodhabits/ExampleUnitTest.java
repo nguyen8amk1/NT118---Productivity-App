@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits;
+package com.nttn.productivity_app;
 
 import org.junit.Test;
 

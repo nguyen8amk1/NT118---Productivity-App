@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui.home;
+package com.nttn.productivity_app.ui.home;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -14,12 +14,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.tharindusathis.goodhabits.R;
-import com.github.tharindusathis.goodhabits.model.Habit;
-import com.github.tharindusathis.goodhabits.model.HabitAndroidViewModel;
-import com.github.tharindusathis.goodhabits.ui.habit.HabitRecyclerViewAdapter;
-import com.github.tharindusathis.goodhabits.ui.habit.HabitViewModel;
-import com.github.tharindusathis.goodhabits.ui.habit.OnHabitClickListener;
+import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.model.Habit;
+import com.nttn.productivity_app.model.HabitAndroidViewModel;
+import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
+import com.nttn.productivity_app.ui.habit.HabitViewModel;
+import com.nttn.productivity_app.ui.habit.OnHabitClickListener;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Date;

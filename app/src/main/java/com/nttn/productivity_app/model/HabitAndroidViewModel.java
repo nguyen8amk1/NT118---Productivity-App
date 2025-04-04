@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.model;
+package com.nttn.productivity_app.model;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.github.tharindusathis.goodhabits.data.HabitDatabase;
-import com.github.tharindusathis.goodhabits.data.HabitRepository;
+import com.nttn.productivity_app.data.HabitDatabase;
+import com.nttn.productivity_app.data.HabitRepository;
 
 import java.util.List;
 

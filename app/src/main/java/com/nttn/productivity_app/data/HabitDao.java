@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.data;
+package com.nttn.productivity_app.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -8,7 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
+import com.nttn.productivity_app.model.Habit;
 
 import java.util.List;
 

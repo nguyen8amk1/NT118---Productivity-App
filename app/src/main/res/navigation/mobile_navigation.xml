@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.github.tharindusathis.goodhabits.ui.home.HomeFragment"
+        android:name="com.nttn.productivity_app.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_stats"
-        android:name="com.github.tharindusathis.goodhabits.ui.stats.StatsFragment"
+        android:name="com.nttn.productivity_app.ui.stats.StatsFragment"
         android:label="@string/menu_stats"
         tools:layout="@layout/fragment_stats" />
 
     <activity
         android:id="@+id/nav_settings"
-        android:name="com.github.tharindusathis.goodhabits.ui.SettingsActivity"
+        android:name="com.nttn.productivity_app.ui.SettingsActivity"
         android:label="Settings"
         tools:layout="@layout/settings_activity" />
 </navigation>

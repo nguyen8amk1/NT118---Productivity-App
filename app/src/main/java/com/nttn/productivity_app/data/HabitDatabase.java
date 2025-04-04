@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.data;
+package com.nttn.productivity_app.data;
 
 import android.content.Context;
 
@@ -9,8 +9,8 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
-import com.github.tharindusathis.goodhabits.util.TypeConverterUtil;
+import com.nttn.productivity_app.model.Habit;
+import com.nttn.productivity_app.util.TypeConverterUtil;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;

@@ -1,10 +1,10 @@
-package com.github.tharindusathis.goodhabits.ui.habit;
+package com.nttn.productivity_app.ui.habit;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
+import com.nttn.productivity_app.model.Habit;
 
 public class HabitViewModel extends ViewModel {
 

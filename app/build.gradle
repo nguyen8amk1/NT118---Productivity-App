@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace "com.github.tharindusathis.goodhabits"
+    namespace "com.nttn.productivity_app"
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.github.tharindusathis.goodhabits"
+        applicationId "com.nttn.productivity_app"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

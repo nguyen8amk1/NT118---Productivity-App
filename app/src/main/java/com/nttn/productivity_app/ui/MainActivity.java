@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui;
+package com.nttn.productivity_app.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,9 +9,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-import com.github.tharindusathis.goodhabits.R;
-import com.github.tharindusathis.goodhabits.ui.habit.HabitBottomSheetFragment;
-import com.github.tharindusathis.goodhabits.ui.habit.HabitViewModel;
+import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.ui.habit.HabitBottomSheetFragment;
+import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
@@ -36,7 +36,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
-import static com.github.tharindusathis.goodhabits.util.Utils.setThemeNightMode;
+import static com.nttn.productivity_app.util.Utils.setThemeNightMode;
 
 public class MainActivity extends AppCompatActivity {
 

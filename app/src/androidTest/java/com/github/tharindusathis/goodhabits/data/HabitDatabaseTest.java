@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.data;
+package com.nttn.productivity_app.data;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.github.tharindusathis.goodhabits.model.Habit;
+import com.nttn.productivity_app.model.Habit;
 
 import org.junit.After;
 import org.junit.Before;

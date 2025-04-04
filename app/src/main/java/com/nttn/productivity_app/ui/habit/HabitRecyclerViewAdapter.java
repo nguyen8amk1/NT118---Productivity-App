@@ -1,4 +1,4 @@
-package com.github.tharindusathis.goodhabits.ui.habit;
+package com.nttn.productivity_app.ui.habit;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.github.tharindusathis.goodhabits.R;
-import com.github.tharindusathis.goodhabits.model.Habit;
+import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.model.Habit;
 
 import org.jetbrains.annotations.NotNull;
 
