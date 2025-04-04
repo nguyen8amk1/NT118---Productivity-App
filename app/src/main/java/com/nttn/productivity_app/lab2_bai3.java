@@ -65,7 +65,7 @@ class EmployeePartTime extends Employee {
 }
 
 public class lab2_bai3 extends Activity {
-    boolean isChinhThuc = false;
+/*    boolean isChinhThuc = false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,5 +129,5 @@ public class lab2_bai3 extends Activity {
                 return true;
             }
         });
-    }
+    }*/
 }

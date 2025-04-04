@@ -1,30 +1,67 @@
-<resources>
-    <string name="app_name">To-Do App</string>
-    <string name="add_sub_task">Add Sub-Task</string>
-    <string name="save">Save</string>
-    <string name="no_task_all">No task in this category \n Click + to create new task.</string>
-    <string name="no_task_completed">No Task in this category</string>
-    <string name="no_task_important">No Task in this category</string>
-    <string name="important">Important</string>
-    <string name="completed">Completed</string>
-    <string name="all">All</string>
-    <string name="add_task">Add Task</string>
-    <string name="create">Create</string>
-    <string name="input_new_task_here">Input New Task Here</string>
-    <string name="today">Today</string>
-    <string name="save_todo">Save Todo</string>
-    <string name="no">No</string>
-    <string name="time_and_remainder"><![CDATA[Time & Remainder]]></string>
-    <string name="due_date">Due Date</string>
-    <string name="edit_task">Edit Task</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">GoodHabits</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">GoodHabits</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
-    <string name="back"><![CDATA[<-]]></string>
-    <string name="forward"><![CDATA[->]]></string>
-    <string name="dashboard_home">Home</string>
-    <string name="view_all_habits">Habits</string>
-    <string name="view_all_habit_events">Habit Events</string>
-    <string name="home_image_description">Fixme</string>
-    <string name="home_instructions">Fixme</string>
-    <string name="menu_home">Fixme: menu home</string>
-    <string name="add_new_item">add new item</string>
+    <string name="menu_home">@string/app_name</string>
+    <string name="menu_home_nav">Habits</string>
+    <string name="menu_stats">Stats</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!--pref keys-->
+    <string name="pref_theme">theme</string>
+
+    <!-- Preference Titles -->
+    <string name="general_header">General</string>
+    <string name="appearance_header">Appearance</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- General Preferences -->
+    <string name="users_name">Your name</string>
+
+    <!-- Appearance Preferences -->
+    <string name="theme_mode">Theme Mode</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="save_item">Save item</string>
+    <string name="habit_name_edit_text">New  Habit…</string>
+    <string name="habit_add_button_text">Add</string>
+    <string name="habit_added_notification">New habit added!</string>
+    <string name="habit_updated_notification">Habit updated!</string>
+    <string name="habit_deleted_notification">Habit deleted!</string>
+    <string name="habit_progress_reset_notification">Habit progress reset!</string>
+    <string name="undo_action_text">Undo</string>
+    <string name="dimiss_action_text">Dismiss</string>
+    <string name="string_account">account</string>
+    <string name="habit_title_label">I commit to grow the habit:</string>
+    <string name="text_dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </string>
+
+    <string name="label_starting_at_input">Started</string>
+    <string name="scroll_view_starting_at_desc">Set starting time of habit</string>
+    <string name="chip_choice_last_week">Last Week</string>
+    <string name="chip_choice_calendar">Custom</string>
+    <string name="chip_choice_yesterday">Yesterday</string>
+    <string name="chip_choice_now">Now</string>
+    <string name="stats_total">Total Habits</string>
+    <string name="stats_good_feedback">Yeah, we are on a good track!</string>
+    <string name="stats_best_performance_title">Best Performance</string>
+
+    <!-- config -->
+    <string name="your_web_client_id">todo-add.apps.googleusercontent.com</string>
+
 </resources>

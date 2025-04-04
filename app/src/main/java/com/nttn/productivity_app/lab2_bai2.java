@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class lab2_bai2 extends Activity {
-    @Override
+/*    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lab2_bai2);
@@ -60,5 +60,5 @@ public class lab2_bai2 extends Activity {
                 return true;
             }
         });
-    }
+    }*/
 }

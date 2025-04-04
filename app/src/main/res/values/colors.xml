@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--to remove-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,30 +8,35 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!--new colors-->
+    <color name="color_palette_white_50">#ffffff</color>
 
-    <color name="toolbar_color">#f5f5f5</color>
-    <color name="background">#f5f5f5</color>
-    <color name="secondary_background">#ffffff</color>
-    <color name="text_color">#ff403b58</color>
-    <color name="text_color_secondary">#777b7c</color>
-    <color name="icon_color">#ff403b58</color>
-    <color name="light_blue">#FF2F7AF8</color>
-    <color name="gray">#A0A0A0</color>
-    <color name="button_color">#403b58</color>
-    <color name="red">#C13131</color>
+    <color name="color_palette_black_800">#121212</color>
+    <color name="color_palette_black_900">#000000</color>
 
-    <color name="timePickerHeader">#FF2F7AF8</color>
-    <color name="timePickerBackground">#ffffff</color>
-    <color name="timePickerNumberText">#FF000000</color>
-    <color name="timePickerNumberSelected">#FF2F7AF8</color>
-    <color name="timePickerNumberBackground">#ffffff</color>
-    <color name="timePickerNumberInnerText">#FF000000</color>
+    <color name="color_palette_blue_50">#eef0f2</color>
+    <color name="color_palette_blue_100">#d2dbe0</color>
+    <color name="color_palette_blue_200">#adbbc4</color>
+    <color name="color_palette_blue_300">#8ca2ae</color>
+    <color name="color_palette_blue_600">#4a6572</color>
+    <color name="color_palette_blue_700">#344955</color>
+    <color name="color_palette_blue_800">#232f34</color>
 
-    <color name="datePickerWindowBackground">#ffffff</color>
-    <color name="datePickerAccent">#FF2F7AF8</color>
-    <color name="datePickerActivated">#FF2F7AF8</color>
-    <color name="datePickerTextColor">#A0A0A0</color>
-    <color name="datePickerTextPrimary">#FF000000</color>
-    <color name="datePickerTextSecondary">#A0A0A0</color>
+    <color name="color_palette_orange_300">#fbd790</color>
+    <color name="color_palette_orange_400">#f9be64</color>
+    <color name="color_palette_orange_500">#f9aa33</color>
 
+    <color name="color_palette_red_200">#cf7779</color>
+    <color name="color_palette_red_400">#ff4c5d</color>
+
+    <color name="color_palette_white_50_alpha_060">#99ffffff</color>
+
+    <color name="color_palette_blue_50_alpha_060">#99eef0f2</color>
+
+    <color name="color_palette_black_900_alpha_020">#33000000</color>
+    <color name="color_palette_black_900_alpha_087">#de000000</color>
+    <color name="color_palette_black_900_alpha_060">#99000000</color>
+
+    <color name="nav_bar">@color/color_palette_black_900_alpha_020</color>
 </resources>
