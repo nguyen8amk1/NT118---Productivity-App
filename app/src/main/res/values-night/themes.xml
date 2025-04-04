@@ -2,7 +2,7 @@
 
     <style name="Theme.ProductivityApp.DayNight" parent="Theme.ProductivityApp.Dark"/>
 
-    <style name="Theme.ProductivityApp.Dark" parent="Theme.ProductivityApp">
+    <style name="Theme.ProductivityApp.Dark" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
         <!--Color-->
         <item name="colorPrimary">@color/color_palette_blue_200</item>

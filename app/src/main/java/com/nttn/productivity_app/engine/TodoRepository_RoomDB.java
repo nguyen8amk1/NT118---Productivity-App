@@ -14,10 +14,10 @@ package com.nttn.productivity_app.engine;
 // import java.util.Optional;
 
 // public class TodoRepository_SqLite extends SQLiteOpenHelper implements iTodoRepository {
-public class TodoRepository_Sqlite {
+public class TodoRepository_RoomDB {
     // private static final String DATABASE_NAME = "todo_database";
     // private static final int DATABASE_VERSION = 1;
-    //
+
     // // Table name and columns
     // private static final String TABLE_TODOS = "todos";
     // private static final String COLUMN_ID = "id";

@@ -1,5 +1,6 @@
 package com.nttn.productivity_app.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -37,9 +39,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 import static com.nttn.productivity_app.util.Utils.setThemeNightMode;
 
+// TODO: (nttn) add the engine into the app [X]
+// TODO: (nttn) show an alert [X]
+// TODO: (nttn) show a custom alert [] @Current
+// TODO: (nttn) room db repo implementation []
+// TODO: (nttn) replace the old habit with our Todo []
+// TODO: (nttn) hooks the engine to the home page []
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String TAG = "ACTIVITY_MAIN";
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -55,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AlertDialog alert = getAlertDialog();
+        alert.show();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -128,6 +138,32 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @NonNull
+    private AlertDialog getAlertDialog() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Write your message here.");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        return alert11;
     }
 
     @Override
