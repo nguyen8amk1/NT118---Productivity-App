@@ -27,6 +27,11 @@ import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.nttn.productivity_app.ui.habit.OnHabitClickListener;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 public class TodayHabitFragment extends Fragment implements OnHabitClickListener {
 
     private static final String TAG = "HOME_FRAGMENT";
@@ -56,20 +61,22 @@ public class TodayHabitFragment extends Fragment implements OnHabitClickListener
 //        ).create(HabitAndroidViewModel.class);
         habitAndroidViewModel = new HabitAndroidViewModel((Application) requireActivity().getApplicationContext(), (iHabitRepository) habitRepository);
 
-        {
-            // final List<Habit> habits = new ArrayList<>();
-            //        habits.add(new Habit("today's hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-            //        habits.add(new Habit("today's hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-            //        habits.add(new Habit("today's hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-            //        habits.add(new Habit("today's hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-            //        habits.add(new Habit("today's hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-            //        habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
-            //        habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+        { // NOTE: (nttn) test data
+            habitRepository.insertHabit(new Habit("Habit 1", new GregorianCalendar(2025, Calendar.APRIL, 1).getTime(), new GregorianCalendar(2025, Calendar.APRIL, 10).getTime()));
+            habitRepository.insertHabit(new Habit("Habit 2", new GregorianCalendar(2025, Calendar.APRIL, 2).getTime(), new GregorianCalendar(2025, Calendar.APRIL, 8).getTime()));
+            habitRepository.insertHabit(new Habit("Habit 3", new GregorianCalendar(2025, Calendar.APRIL, 3).getTime(), new GregorianCalendar(2025, Calendar.APRIL, 15).getTime()));
+            habitRepository.insertHabit(new Habit("Habit 4", new GregorianCalendar(2025, Calendar.APRIL, 4).getTime(), new GregorianCalendar(2025, Calendar.APRIL, 5).getTime()));
         }
 
         habitAndroidViewModel
                 .getAllHabits()
                 .observe(requireActivity(), habits -> {
+                            // Sort habits in ascending order based on the difference between endDate and now
+                            habits.sort((habit1, habit2) -> {
+                                long diff1 = habit1.getEndedAt().getTime() - System.currentTimeMillis();
+                                long diff2 = habit2.getEndedAt().getTime() - System.currentTimeMillis();
+                                return Long.compare(diff1, diff2);
+                            });
                             habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
                             habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
                         }
