@@ -38,6 +38,7 @@ import java.util.Objects;
  *     HabitBottomSheetFragment.newInstance(30).show(getSupportFragmentManager(), "dialog");
  * </pre>
  */
+
 public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
 
     private HabitViewModel habitViewModel;
@@ -47,7 +48,6 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
     private ImageButton buttonDiscard;
 
     private CalendarView calendarView;
-    private Chip chipChoiceNow, chipChoiceYesterday, chipChoiceLastWeek, chipChoiceCalendar;
     private List<View> groupEditStartedAt;
 
     Calendar calendar = Calendar.getInstance();
@@ -62,22 +62,11 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
             Bundle savedInstanceState
     ) {
         View root = inflater.inflate(R.layout.fragment_habit_bottom_sheet, container, false);
-
         editTextHabit = root.findViewById(R.id.edit_text_habit_bottom_sheet);
         buttonSaveHabit = root.findViewById(R.id.button_save_bottom_sheet);
         buttonDiscard = root.findViewById(R.id.button_discard_bottom_sheet);
         calendarView = root.findViewById(R.id.calendar_view);
-        groupEditStartedAt = Arrays.asList(
-                calendarView,
-                root.findViewById(R.id.label_starting_at_input),
-                root.findViewById(R.id.scroll_view_starting_at)
-        );
-
-
-        chipChoiceNow = root.findViewById(R.id.chip_choice_now);
-        chipChoiceYesterday = root.findViewById(R.id.chip_choice_yesterday);
-        chipChoiceLastWeek = root.findViewById(R.id.chip_choice_last_week);
-        chipChoiceCalendar = root.findViewById(R.id.chip_choice_calendar);
+        groupEditStartedAt = Arrays.asList(calendarView);
 
         habitViewModel = new ViewModelProvider(requireActivity()).get(HabitViewModel.class);
 
@@ -88,7 +77,6 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
         for (View view : groupEditStartedAt) {
             view.setVisibility(View.VISIBLE);
         }
-        calendarView.setVisibility(View.GONE);
         dateStartedAt = new Date();
         editTextHabit.setText("");
         editTextHabit.setError(null);
@@ -104,7 +92,7 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
             for (View view : groupEditStartedAt) {
                 view.setVisibility(View.GONE);
             }
-        }else{
+        } else {
             reset();
         }
     }
@@ -152,29 +140,6 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
             calendar.set(year, month, dayOfMonth);
             dateStartedAt = calendar.getTime();
         });
-
-        View.OnClickListener startedAtChoiceChipOnClickListener = v -> {
-            Utils.hideSoftKeyboard(v);
-            calendar.setTime(dateStartedAt);
-
-            int itemId = v.getId();
-            if (itemId == R.id.chip_choice_now) {
-                calendar.add(Calendar.DAY_OF_YEAR, 0);
-            }else if (itemId == R.id.chip_choice_yesterday) {
-                calendar.add(Calendar.DAY_OF_YEAR, -1);
-            }else if (itemId == R.id.chip_choice_last_week) {
-                calendar.add(Calendar.DAY_OF_YEAR, -7);
-            }else if (itemId == R.id.chip_choice_calendar) {
-                calendarView.setVisibility(View.VISIBLE);
-            }
-            dateStartedAt = calendar.getTime();
-            calendarView.setDate(dateStartedAt.getTime());
-        };
-
-        chipChoiceNow.setOnClickListener(startedAtChoiceChipOnClickListener);
-        chipChoiceYesterday.setOnClickListener(startedAtChoiceChipOnClickListener);
-        chipChoiceLastWeek.setOnClickListener(startedAtChoiceChipOnClickListener);
-        chipChoiceCalendar.setOnClickListener(startedAtChoiceChipOnClickListener);
     }
 
     @Override
