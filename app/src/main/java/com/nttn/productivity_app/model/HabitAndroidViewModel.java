@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.nttn.productivity_app.data.HabitDatabase;
-import com.nttn.productivity_app.data.HabitRepository;
 import com.nttn.productivity_app.data.iHabitRepository;
 
 import java.util.List;

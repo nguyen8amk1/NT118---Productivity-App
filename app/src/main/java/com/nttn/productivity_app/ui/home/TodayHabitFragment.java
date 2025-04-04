@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
-import com.nttn.productivity_app.data.HabitRepository;
 import com.nttn.productivity_app.data.HabitRepository_InMemory;
 import com.nttn.productivity_app.data.iHabitRepository;
 import com.nttn.productivity_app.model.Habit;
@@ -27,12 +26,6 @@ import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.nttn.productivity_app.ui.habit.OnHabitClickListener;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 public class TodayHabitFragment extends Fragment implements OnHabitClickListener {
 
