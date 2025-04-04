@@ -1,5 +1,11 @@
 package com.nttn.productivity_app.engine;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import com.nttn.productivity_app.model.Todo;
+
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,6 +14,7 @@ import java.util.stream.Collectors;
 public class TodoRepository_InMemory implements iTodoRepository {
     private final Map<String, Todo> todoStore = new ConcurrentHashMap<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Todo save(Todo todo) {
         if (todo == null) {
@@ -26,6 +33,7 @@ public class TodoRepository_InMemory implements iTodoRepository {
         return todo;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public Optional<Todo> findById(String id) {
         if (id == null || id.isEmpty()) {
@@ -48,6 +56,7 @@ public class TodoRepository_InMemory implements iTodoRepository {
         todoStore.remove(id);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public List<Todo> findByDeadlineBetween(LocalDateTime start, LocalDateTime end) {
         if (start == null || end == null) {
@@ -70,6 +79,7 @@ public class TodoRepository_InMemory implements iTodoRepository {
      * 
      * @return List of overdue todos
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public List<Todo> findOverdue() {
         LocalDateTime now = LocalDateTime.now();
         return todoStore.values().stream()
@@ -82,6 +92,7 @@ public class TodoRepository_InMemory implements iTodoRepository {
      * 
      * @return List of todos that need notification
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public List<Todo> findTodosForNotification() {
         return todoStore.values().stream()
                 .filter(todo -> !todo.isCompleted() && !todo.isNotified())
@@ -93,6 +104,7 @@ public class TodoRepository_InMemory implements iTodoRepository {
      * 
      * @return List of completed todos
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public List<Todo> findCompleted() {
         return todoStore.values().stream()
                 .filter(Todo::isCompleted)

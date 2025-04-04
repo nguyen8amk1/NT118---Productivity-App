@@ -1,6 +1,5 @@
 package com.nttn.productivity_app.ui;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.nttn.productivity_app.R;
-import com.nttn.productivity_app.engine.Todo;
+import com.nttn.productivity_app.model.Todo;
 import com.nttn.productivity_app.ui.habit.HabitBottomSheetFragment;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
@@ -47,9 +46,9 @@ import java.time.LocalDateTime;
 
 // TODO: (nttn) add the engine into the app [X]
 // TODO: (nttn) show an alert [X]
-// TODO: (nttn) show a custom alert [] @Current
-// TODO: (nttn) room db repo implementation []
-// TODO: (nttn) replace the old habit with our Todo []
+// TODO: (nttn) show a custom alert [X]
+// TODO: (nttn) todo room db repo implementation []    @Current
+// TODO: (nttn) replace the old habit with our Todo [] @Current
 // TODO: (nttn) hooks the engine to the home page []
 
 public class MainActivity extends AppCompatActivity {

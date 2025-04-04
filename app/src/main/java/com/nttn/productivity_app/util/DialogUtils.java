@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.nttn.productivity_app.R;
-import com.nttn.productivity_app.engine.Todo;
+import com.nttn.productivity_app.model.Todo;
 
 public class DialogUtils {
     @NonNull
