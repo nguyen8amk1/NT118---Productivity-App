@@ -1,9 +1,11 @@
 package com.nttn.productivity_app.ui.habit;
 
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nttn.productivity_app.model.Habit;
@@ -16,8 +18,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 
 import com.nttn.productivity_app.R;
 import com.google.android.material.chip.Chip;
@@ -47,7 +51,8 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
     private ImageButton buttonSaveHabit;
     private ImageButton buttonDiscard;
 
-    private CalendarView calendarView;
+    private DatePicker datePicker;
+    private TimePicker timePicker;
     private List<View> groupEditStartedAt;
 
     Calendar calendar = Calendar.getInstance();
@@ -65,8 +70,9 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
         editTextHabit = root.findViewById(R.id.edit_text_habit_bottom_sheet);
         buttonSaveHabit = root.findViewById(R.id.button_save_bottom_sheet);
         buttonDiscard = root.findViewById(R.id.button_discard_bottom_sheet);
-        calendarView = root.findViewById(R.id.calendar_view);
-        groupEditStartedAt = Arrays.asList(calendarView);
+        datePicker = root.findViewById(R.id.date_picker);
+        timePicker = root.findViewById(R.id.time_picker);
+        groupEditStartedAt = Arrays.asList(datePicker, timePicker);
 
         habitViewModel = new ViewModelProvider(requireActivity()).get(HabitViewModel.class);
 
@@ -97,6 +103,7 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -135,9 +142,13 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
             reset();
         });
 
-        calendarView.setOnDateChangeListener((view_, year, month, dayOfMonth) -> {
-            calendar.clear();
+        datePicker.setOnDateChangedListener((view_, year, month, dayOfMonth) -> {
             calendar.set(year, month, dayOfMonth);
+        });
+
+        timePicker.setOnTimeChangedListener((view_, hourOfDay, minute) -> {
+            calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            calendar.set(Calendar.MINUTE, minute);
             dateStartedAt = calendar.getTime();
         });
     }

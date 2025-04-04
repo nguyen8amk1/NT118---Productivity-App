@@ -50,8 +50,9 @@ import java.time.LocalDateTime;
 // TODO: (nttn) insert custom habit to the recycler view [X]
 // TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits [X]
     // have different stub data for each screen to differentiate
-// TODO: (nttn) custom the task creation ui              [] @Current
-// TODO: (nttn) custom the logo (nt118 - group 2) xml    []
+// TODO: (nttn) custom the task creation ui                 [X]
+// TODO: (nttn) add time picker right after the date picker [X]
+// TODO: (nttn) custom the logo (nt118 - group 2) xml    [] @Current
 // TODO: (nttn) locate the logic of the app              []
 
 // TODO: (nttn) insert custom todo (not habit) to the recycler view  []
