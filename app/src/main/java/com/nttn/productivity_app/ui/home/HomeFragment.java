@@ -1,6 +1,7 @@
 package com.nttn.productivity_app.ui.home;
 
 import android.app.AlertDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,20 +10,29 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.engine.TodoRepository_InMemory;
+import com.nttn.productivity_app.engine.iTodoRepository;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
+import com.nttn.productivity_app.model.TodoAndroidViewModel;
 import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.nttn.productivity_app.ui.habit.OnHabitClickListener;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 public class HomeFragment extends Fragment implements OnHabitClickListener {
 
@@ -33,33 +43,50 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
     private HabitAndroidViewModel habitAndroidViewModel;
     private HabitViewModel habitViewModel;
 
+
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        // Layout Inflation: Convert xml object to view object, by calling inflater.inflate(xml object, );
+        // In Recycler view:
+        //      inflating used to create item views that will be displayed in the list of grid.
+        // Recycler view pattern:
+            // 1. Recycler view: (the main view)
+            // 2. Adapter: (Bind data to views)
+            // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
+            // 4. Layout manager: (Manages the layout to display list items)
+
 
         habitRecyclerView = root.findViewById(R.id.habit_recycler_view);
         habitRecyclerView.setHasFixedSize(true);
         habitRecyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-
         habitViewModel = new ViewModelProvider(requireActivity()).get(HabitViewModel.class);
-
         habitAndroidViewModel = new ViewModelProvider.AndroidViewModelFactory(
                 requireActivity().getApplication()
         ).create(HabitAndroidViewModel.class);
 
-        habitAndroidViewModel
-                .getAllHabits()
-                .observe(requireActivity(), habits -> {
-                            habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
-                            habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
-                        }
-                );
+        final List<Habit> habits = new ArrayList<>();
+        habits.add(new Habit("hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habits.add(new Habit("hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+        habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
+        habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+
+//        habitAndroidViewModel
+//                .getAllHabits()
+//                .observe(requireActivity(), habits -> {
+//                            habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
+//                            habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+//                        }
+//                );
 
         return root;
     }
