@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.data.iHabitRepository;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
 import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
@@ -37,6 +38,7 @@ public class AllHabitsFragment extends Fragment implements OnHabitClickListener 
     private HabitRecyclerViewAdapter habitRecyclerViewAdapter;
     private HabitAndroidViewModel habitAndroidViewModel;
     private HabitViewModel habitViewModel;
+    private iHabitRepository habitRepository;
 
 
     @Override
@@ -67,11 +69,11 @@ public class AllHabitsFragment extends Fragment implements OnHabitClickListener 
         ).create(HabitAndroidViewModel.class);
 
         final List<Habit> habits = new ArrayList<>();
-        habits.add(new Habit("all hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("all hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("all hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("all hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("all hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+//        habits.add(new Habit("all hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+//        habits.add(new Habit("all hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+//        habits.add(new Habit("all hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+//        habits.add(new Habit("all hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+//        habits.add(new Habit("all hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
         habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
         habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
 
@@ -100,13 +102,13 @@ public class AllHabitsFragment extends Fragment implements OnHabitClickListener 
             if (which == 0) {   /* reset progress */
                 Date currentProgress = habit.getStartedAt();
                 habit.setStartedAt(new Date());
-                HabitAndroidViewModel.updateHabit(habit);
+                habitRepository.updateHabit(habit);
                 Snackbar
                         .make(requireActivity().findViewById(R.id.fab_add_habit),
                                 R.string.habit_progress_reset_notification, Snackbar.LENGTH_LONG)
                         .setAction(R.string.undo_action_text, v_ -> {
                             habit.setStartedAt(currentProgress);
-                            HabitAndroidViewModel.updateHabit(habit);
+                            habitRepository.updateHabit(habit);
                         })
                         .show();
             } else if (which == 1) {    /* edit habit */
@@ -117,11 +119,11 @@ public class AllHabitsFragment extends Fragment implements OnHabitClickListener 
                         habitViewModel.getHabitBottomSheetFragment().getTag()
                 );
             } else if (which == 2) {    /* delete habit */
-                HabitAndroidViewModel.deleteHabit(habit);
+                habitRepository.deleteHabit(habit);
                 Snackbar
                         .make(requireActivity().findViewById(R.id.fab_add_habit),
                                 R.string.habit_deleted_notification, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.undo_action_text, v_ -> HabitAndroidViewModel.insertHabit(habit))
+                        .setAction(R.string.undo_action_text, v_ -> habitRepository.insertHabit(habit))
                         .show();
             }
         });

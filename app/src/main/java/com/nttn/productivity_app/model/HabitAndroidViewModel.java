@@ -8,17 +8,17 @@ import androidx.lifecycle.LiveData;
 
 import com.nttn.productivity_app.data.HabitDatabase;
 import com.nttn.productivity_app.data.HabitRepository;
+import com.nttn.productivity_app.data.iHabitRepository;
 
 import java.util.List;
 
 public class HabitAndroidViewModel extends AndroidViewModel {
-
-    public static HabitRepository habitRepository;
+    private final iHabitRepository habitRepository;
     public final LiveData<List<Habit>> allHabits;
 
-    public HabitAndroidViewModel(@NonNull Application application) {
+    public HabitAndroidViewModel(@NonNull Application application, @NonNull iHabitRepository habitRepository) {
         super(application);
-        habitRepository = new HabitRepository(application);
+        this.habitRepository = habitRepository;
         allHabits = habitRepository.getAllHabits();
     }
 
@@ -37,21 +37,4 @@ public class HabitAndroidViewModel extends AndroidViewModel {
     public LiveData<Habit> getFirstStartedHabit() {
         return habitRepository.getFirstStartedHabit();
     }
-
-    public static void insertHabit(Habit habit) {
-        habitRepository.insertHabit(habit);
-    }
-
-    public static void updateHabit(Habit habit) {
-        habitRepository.updateHabit(habit);
-    }
-
-    public static void deleteHabit(Habit habit) {
-        habitRepository.deleteHabit(habit);
-    }
-
-    public static void deleteLastAddedHabit() {
-        habitRepository.deleteLastAddedHabit();
-    }
-
 }

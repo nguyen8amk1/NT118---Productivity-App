@@ -21,22 +21,13 @@ public class Habit {
     @ColumnInfo(name = "started_at")
     public Date startedAt;
 
-    @ColumnInfo(name = "created_at")
-    public Date createdDate;
+    @ColumnInfo(name = "ended_at")
+    public Date endedAt;
 
-    /**
-     * @deprecated
-     */
-    public Habit(@NotNull String title, Date startedAt, Date createdDate) {
+    public Habit(@NotNull String title, Date startedAt, Date endedAt) {
         this.title = title;
         this.startedAt = startedAt;
-        this.createdDate = createdDate;
-    }
-
-    public Habit(@NotNull String title, Date startedAt) {
-        this.title = title;
-        this.startedAt = startedAt;
-        this.createdDate = new Date();
+        this.endedAt = endedAt;
     }
 
     public Habit() {
@@ -63,12 +54,12 @@ public class Habit {
         this.startedAt = startedAt;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getEndedAt() {
+        return endedAt;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setEndedAt(Date endedAt) {
+        this.endedAt = endedAt;
     }
 
     @NotNull
@@ -78,7 +69,7 @@ public class Habit {
                 "habitId=" + habitId +
                 ", title='" + title + '\'' +
                 ", startedAt=" + startedAt +
-                ", createdDate=" + createdDate +
+                ", endedAt=" + endedAt +
                 '}';
     }
 
@@ -91,7 +82,6 @@ public class Habit {
 
         if (!title.equals(habit.title)) return false;
         if (!startedAt.equals(habit.startedAt)) return false;
-        return createdDate.equals(habit.createdDate);
+        return endedAt.equals(habit.endedAt);
     }
-
 }

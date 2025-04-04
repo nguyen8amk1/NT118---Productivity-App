@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.nttn.productivity_app.data.HabitRepository_InMemory;
+import com.nttn.productivity_app.data.iHabitRepository;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
 import com.nttn.productivity_app.util.Utils;
@@ -29,6 +31,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,6 +58,7 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
     private DatePicker datePicker;
     private TimePicker timePicker;
     private List<View> groupEditStartedAt;
+    private iHabitRepository habitRepository = HabitRepository_InMemory.getInstance();
 
     Calendar calendar = Calendar.getInstance();
     private Date dateStartedAt;
@@ -111,17 +116,19 @@ public class HabitBottomSheetFragment extends BottomSheetDialogFragment {
             String title = editTextHabit.getText().toString().trim();
             if (!TextUtils.isEmpty(title)) {
                 if (!habitViewModel.isEditing()) {
-                    Habit newHabit = new Habit(title, dateStartedAt);
-                    HabitAndroidViewModel.insertHabit(newHabit);
+                    final Date startDate = new Date();
+                    final Date endDate   = dateStartedAt;
+                    Habit newHabit = new Habit(title, startDate, endDate);
+                    habitRepository.insertHabit(newHabit);
                     Snackbar
                             .make(requireActivity().findViewById(R.id.fab_add_habit),
                                     R.string.habit_added_notification, Snackbar.LENGTH_LONG)
-                            .setAction(R.string.undo_action_text, v_ -> HabitAndroidViewModel.deleteLastAddedHabit())
+                            .setAction(R.string.undo_action_text, v_ -> habitRepository.deleteLastAddedHabit())
                             .show();
                 } else {
                     Habit editingHabit = habitViewModel.getSelectedHabit().getValue();
                     Objects.requireNonNull(editingHabit).setTitle(title);
-                    HabitAndroidViewModel.updateHabit(editingHabit);
+                    habitRepository.updateHabit(editingHabit);
                     Snackbar
                             .make(requireActivity().findViewById(R.id.fab_add_habit),
                                     R.string.habit_updated_notification, Snackbar.LENGTH_LONG)

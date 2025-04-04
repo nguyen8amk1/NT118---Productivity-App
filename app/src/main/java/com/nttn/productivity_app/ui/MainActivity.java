@@ -52,14 +52,26 @@ import java.time.LocalDateTime;
     // have different stub data for each screen to differentiate
 // TODO: (nttn) custom the task creation ui                 [X]
 // TODO: (nttn) add time picker right after the date picker [X]
-// TODO: (nttn) locate the logic of the app                 [] @Current
+// TODO: (nttn) locate the logic of the app                 []
     // NOTE: (nttn) What's logic does the app currently have ??
     // 1. habit crud (add habit, reset progress, Edit habit, delete habit):
           // -> Today Habit Fragment, All Habit Fragment
     // 2. progress timer (increment every 1s): HabitViewHolder
     // -> TODO: (nttn) Gather all distributed logic into a HabitService
 
-// TODO: (nttn) custom the logo (nt118 - group 2) xml       []
+// Layout Inflation: Convert xml object to view object, by calling inflater.inflate(xml object, );
+// In Recycler view:
+//      inflating used to create item views that will be displayed in the list of grid.
+// Recycler view pattern:
+// 1. Recycler view: (the main view)
+// 2. Adapter: (Bind data to views)
+// 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
+// 4. Layout manager: (Manages the layout to display list items)
+
+
+// TODO: (nttn) Adjust the Habit to fit our use case     [] @Current
+
+// TODO: (nttn) custom the logo (nt118 - group 2) xml    []
 
 // TODO: (nttn) insert custom todo (not habit) to the recycler view  []
 // TODO: (nttn) todo room db repo implementation         []

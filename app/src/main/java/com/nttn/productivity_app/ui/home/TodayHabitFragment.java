@@ -1,6 +1,7 @@
 package com.nttn.productivity_app.ui.home;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
-import com.nttn.productivity_app.engine.HabitService;
+import com.nttn.productivity_app.data.HabitRepository;
+import com.nttn.productivity_app.data.HabitRepository_InMemory;
+import com.nttn.productivity_app.data.iHabitRepository;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
 import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
@@ -39,7 +42,7 @@ public class TodayHabitFragment extends Fragment implements OnHabitClickListener
     private HabitRecyclerViewAdapter habitRecyclerViewAdapter;
     private HabitAndroidViewModel habitAndroidViewModel;
     private HabitViewModel habitViewModel;
-    private HabitService habitService;
+    private iHabitRepository habitRepository = HabitRepository_InMemory.getInstance();
 
 
     @Override
@@ -51,39 +54,33 @@ public class TodayHabitFragment extends Fragment implements OnHabitClickListener
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_habitslist, container, false);
-        // Layout Inflation: Convert xml object to view object, by calling inflater.inflate(xml object, );
-        // In Recycler view:
-        //      inflating used to create item views that will be displayed in the list of grid.
-        // Recycler view pattern:
-            // 1. Recycler view: (the main view)
-            // 2. Adapter: (Bind data to views)
-            // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
-            // 4. Layout manager: (Manages the layout to display list items)
-
         habitRecyclerView = root.findViewById(R.id.habit_recycler_view);
         habitRecyclerView.setHasFixedSize(true);
         habitRecyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         habitViewModel = new ViewModelProvider(requireActivity()).get(HabitViewModel.class);
-        habitAndroidViewModel = new ViewModelProvider.AndroidViewModelFactory(
-                requireActivity().getApplication()
-        ).create(HabitAndroidViewModel.class);
+//        habitAndroidViewModel = new ViewModelProvider.AndroidViewModelFactory(
+//                requireActivity().getApplication()
+//        ).create(HabitAndroidViewModel.class);
+        habitAndroidViewModel = new HabitAndroidViewModel((Application) requireActivity().getApplicationContext(), (iHabitRepository) habitRepository);
 
-        final List<Habit> habits = new ArrayList<>();
-        habits.add(new Habit("today's hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habits.add(new Habit("today's hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
-        habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
-        habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+        {
+            // final List<Habit> habits = new ArrayList<>();
+            //        habits.add(new Habit("today's hello world 1", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+            //        habits.add(new Habit("today's hello world 2", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+            //        habits.add(new Habit("today's hello world 3", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+            //        habits.add(new Habit("today's hello world 4", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+            //        habits.add(new Habit("today's hello world 5", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime()));
+            //        habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
+            //        habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+        }
 
-//        habitAndroidViewModel
-//                .getAllHabits()
-//                .observe(requireActivity(), habits -> {
-//                            habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
-//                            habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
-//                        }
-//                );
+        habitAndroidViewModel
+                .getAllHabits()
+                .observe(requireActivity(), habits -> {
+                            habitRecyclerViewAdapter = new HabitRecyclerViewAdapter(habits, this);
+                            habitRecyclerView.setAdapter(habitRecyclerViewAdapter);
+                        }
+                );
 
         return root;
     }
@@ -107,10 +104,10 @@ public class TodayHabitFragment extends Fragment implements OnHabitClickListener
                         habitViewModel.getHabitBottomSheetFragment().getTag()
                 );
             } else if (which == 1) {    /* delete habit */
-                habitService.deleteHabit(habit);
+                habitRepository.deleteHabit(habit);
                 Snackbar.make(requireActivity().findViewById(R.id.fab_add_habit),
                                 R.string.habit_deleted_notification, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.undo_action_text, v_ -> HabitAndroidViewModel.insertHabit(habit))
+                        .setAction(R.string.undo_action_text, v_ -> habitRepository.insertHabit(habit))
                         .show();
             }
         });
