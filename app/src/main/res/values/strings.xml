@@ -63,5 +63,6 @@
 
     <!-- config -->
     <string name="your_web_client_id">todo-add.apps.googleusercontent.com</string>
+    <string name="alarm_clock_image">an alarm clock</string>
 
 </resources>

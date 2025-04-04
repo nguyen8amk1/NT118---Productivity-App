@@ -1,5 +1,9 @@
 package com.nttn.productivity_app.engine;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 import java.time.Duration;
 import java.util.Objects;
@@ -14,6 +18,7 @@ public class Todo {
     private boolean notified;
 
     // Constructor
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Todo(String id, String title, String description, LocalDateTime deadline) {
         this.id = id;
         this.title = title;
@@ -25,11 +30,13 @@ public class Todo {
     }
 
     // Calculate the time remaining in minutes
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private long calculateDelta(LocalDateTime deadline) {
         return Duration.between(LocalDateTime.now(), deadline).toMinutes();
     }
 
     // Update delta based on the current time
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateDelta() {
         this.delta = calculateDelta(this.deadline);
     }
@@ -40,6 +47,7 @@ public class Todo {
     }
 
     // Check if the task is overdue
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean isOverdue() {
         return LocalDateTime.now().isAfter(deadline);
     }
@@ -50,6 +58,7 @@ public class Todo {
     }
 
     // Update the deadline
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateDeadline(LocalDateTime newDeadline) {
         this.deadline = newDeadline;
         updateDelta();

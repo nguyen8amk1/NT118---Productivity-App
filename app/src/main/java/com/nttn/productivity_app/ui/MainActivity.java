@@ -3,6 +3,7 @@ package com.nttn.productivity_app.ui;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.engine.Todo;
 import com.nttn.productivity_app.ui.habit.HabitBottomSheetFragment;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
@@ -26,6 +28,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,6 +41,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 import static com.nttn.productivity_app.util.Utils.setThemeNightMode;
+import com.nttn.productivity_app.util.DialogUtils;
+
+import java.time.LocalDateTime;
 
 // TODO: (nttn) add the engine into the app [X]
 // TODO: (nttn) show an alert [X]
@@ -58,12 +64,14 @@ public class MainActivity extends AppCompatActivity {
     private BeginSignInRequest signInRequest, signUpRequest;
     ActivityResultLauncher<IntentSenderRequest> signInResultHandler;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AlertDialog alert = getAlertDialog();
+        final Todo todo = new Todo("id", "title", "description", LocalDateTime.of(2025, 5, 20, 2, 2));
+        AlertDialog alert = DialogUtils.getDeadlineDialog(todo, this);
         alert.show();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -140,31 +148,6 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    @NonNull
-    private AlertDialog getAlertDialog() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage("Write your message here.");
-        builder1.setCancelable(true);
-
-        builder1.setPositiveButton(
-                "Yes",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        builder1.setNegativeButton(
-                "No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alert11 = builder1.create();
-        return alert11;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

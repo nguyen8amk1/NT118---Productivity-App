@@ -16,7 +16,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/large_component_corner_radius</item>
     </style>
-
+    <style name="Theme.ProductivityApp.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color_palette_orange_500</item>
+    </style>>
     <!-- corner radii -->
     <dimen name="small_component_corner_radius">24dp</dimen>
     <dimen name="medium_component_corner_radius">0dp</dimen>
