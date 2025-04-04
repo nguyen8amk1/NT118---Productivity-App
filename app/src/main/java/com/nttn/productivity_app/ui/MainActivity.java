@@ -48,10 +48,12 @@ import java.time.LocalDateTime;
 // TODO: (nttn) show an alert [X]
 // TODO: (nttn) show a custom alert [X]
 // TODO: (nttn) insert custom habit to the recycler view [X]
-// TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits []  @Current
+// TODO: (nttn) create 1 more side bar buttons: all habits, let the fragment home as today's habits [X]
     // have different stub data for each screen to differentiate
-// TODO: (nttn) custom the task creation []
-// TODO: (nttn) custom the logo (nt118 - group 2) xml []
+// TODO: (nttn) custom the logo (nt118 - group 2) xml [] @Current
+// TODO: (nttn) custom the task creation ui []
+
+
 // TODO: (nttn) insert custom todo to the recycler view  []
 // TODO: (nttn) todo room db repo implementation         []
 // TODO: (nttn) todo room db repo implementation         []
@@ -156,13 +158,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.account, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.action_settings) {
@@ -171,23 +166,6 @@ public class MainActivity extends AppCompatActivity {
             // intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
             startActivity(intent);
             return true;
-        }else if(itemId == R.id.account) {
-            oneTapClient
-                    .beginSignIn(signUpRequest)
-                    .addOnSuccessListener(this, result ->
-                            signInResultHandler.launch(
-                                    new IntentSenderRequest
-                                            .Builder(result.getPendingIntent())
-                                            .build()
-                            )
-                    )
-                    .addOnFailureListener(this, exception -> {
-                        Log.d(TAG, exception.getLocalizedMessage());
-                        snackbar = Snackbar.make(fab, "SignIn Error! " + exception.getLocalizedMessage(),
-                                BaseTransientBottomBar.LENGTH_INDEFINITE)
-                                .setAction(R.string.dimiss_action_text, v -> dismissSnackbar());
-                        snackbar.show();
-                    });
         }
         return super.onOptionsItemSelected(item);
     }
