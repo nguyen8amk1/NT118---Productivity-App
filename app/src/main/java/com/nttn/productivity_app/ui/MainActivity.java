@@ -52,8 +52,14 @@ import java.time.LocalDateTime;
     // have different stub data for each screen to differentiate
 // TODO: (nttn) custom the task creation ui                 [X]
 // TODO: (nttn) add time picker right after the date picker [X]
-// TODO: (nttn) custom the logo (nt118 - group 2) xml    [] @Current
-// TODO: (nttn) locate the logic of the app              []
+// TODO: (nttn) locate the logic of the app                 [] @Current
+    // NOTE: (nttn) What's logic does the app currently have ??
+    // 1. habit crud (add habit, reset progress, Edit habit, delete habit):
+          // -> Today Habit Fragment, All Habit Fragment
+    // 2. progress timer (increment every 1s): HabitViewHolder
+    // -> TODO: (nttn) Gather all distributed logic into a HabitService
+
+// TODO: (nttn) custom the logo (nt118 - group 2) xml       []
 
 // TODO: (nttn) insert custom todo (not habit) to the recycler view  []
 // TODO: (nttn) todo room db repo implementation         []

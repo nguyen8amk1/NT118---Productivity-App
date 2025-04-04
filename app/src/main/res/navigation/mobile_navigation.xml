@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_today_habits"
-        android:name="com.nttn.productivity_app.ui.home.HomeFragment"
+        android:name="com.nttn.productivity_app.ui.home.TodayHabitFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_habitslist" />
 

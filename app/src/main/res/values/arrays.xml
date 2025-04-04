@@ -15,7 +15,6 @@
     </string-array>
 
     <string-array name="habit_popup_menu_items">
-        <item>Reset Progress</item>
         <item>Edit Habit</item>
         <item>Delete Habit</item>
     </string-array>

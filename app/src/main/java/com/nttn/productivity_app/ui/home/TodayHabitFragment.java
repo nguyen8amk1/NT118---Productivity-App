@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.engine.HabitService;
 import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.HabitAndroidViewModel;
 import com.nttn.productivity_app.ui.habit.HabitRecyclerViewAdapter;
@@ -30,7 +31,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements OnHabitClickListener {
+public class TodayHabitFragment extends Fragment implements OnHabitClickListener {
 
     private static final String TAG = "HOME_FRAGMENT";
 
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
     private HabitRecyclerViewAdapter habitRecyclerViewAdapter;
     private HabitAndroidViewModel habitAndroidViewModel;
     private HabitViewModel habitViewModel;
+    private HabitService habitService;
 
 
     @Override
@@ -57,7 +59,6 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
             // 2. Adapter: (Bind data to views)
             // 3. View holder: (Performance optimization trick) Holds references to the views for each item, improving performance by caching views.
             // 4. Layout manager: (Manages the layout to display list items)
-
 
         habitRecyclerView = root.findViewById(R.id.habit_recycler_view);
         habitRecyclerView.setHasFixedSize(true);
@@ -98,29 +99,16 @@ public class HomeFragment extends Fragment implements OnHabitClickListener {
 
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getActivity());
         alertBuilder.setItems(R.array.habit_popup_menu_items, (dialog, which) -> {
-            if (which == 0) {   /* reset progress */
-                Date currentProgress = habit.getStartedAt();
-                habit.setStartedAt(new Date());
-                HabitAndroidViewModel.updateHabit(habit);
-                Snackbar
-                        .make(requireActivity().findViewById(R.id.fab_add_habit),
-                                R.string.habit_progress_reset_notification, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.undo_action_text, v_ -> {
-                            habit.setStartedAt(currentProgress);
-                            HabitAndroidViewModel.updateHabit(habit);
-                        })
-                        .show();
-            } else if (which == 1) {    /* edit habit */
+            if (which == 0) {    /* edit habit, this is pure ui */
                 habitViewModel.setHabit(habit);
                 habitViewModel.setEditing(true);
                 habitViewModel.getHabitBottomSheetFragment().show(
                         requireActivity().getSupportFragmentManager(),
                         habitViewModel.getHabitBottomSheetFragment().getTag()
                 );
-            } else if (which == 2) {    /* delete habit */
-                HabitAndroidViewModel.deleteHabit(habit);
-                Snackbar
-                        .make(requireActivity().findViewById(R.id.fab_add_habit),
+            } else if (which == 1) {    /* delete habit */
+                habitService.deleteHabit(habit);
+                Snackbar.make(requireActivity().findViewById(R.id.fab_add_habit),
                                 R.string.habit_deleted_notification, Snackbar.LENGTH_LONG)
                         .setAction(R.string.undo_action_text, v_ -> HabitAndroidViewModel.insertHabit(habit))
                         .show();
