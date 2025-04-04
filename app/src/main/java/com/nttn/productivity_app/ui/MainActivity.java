@@ -68,7 +68,9 @@ import java.time.LocalDateTime;
     // 2. progress timer (increment every 1s): HabitViewHolder
     // -> TODO: (nttn) Gather all distributed logic into a HabitService
 // TODO: (nttn) Adjust the Habit to fit our use case     [X]
-// TODO: (nttn) Make the habit display a time left format, make it count down [] @Current
+// TODO: (nttn) Make the habit display a time left format, make it count down [X]
+// TODO: (nttn) Show multiple habit [X]
+// TODO: (nttn) Show habits in the order of the closest deadline to furthest [] @Current
 // TODO: (nttn) custom the logo (nt118 - group 2) xml    []
 // TODO: (nttn) insert custom todo (not habit) to the recycler view  []
 // TODO: (nttn) hooks the engine to the home page        []

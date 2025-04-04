@@ -1,10 +1,15 @@
 package com.nttn.productivity_app.data;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.nttn.productivity_app.model.Habit;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +32,32 @@ public class HabitRepository_InMemory implements iHabitRepository {
     @Override
     public LiveData<List<Habit>> getAllHabits() {
         return habitsLiveData;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public LiveData<List<Habit>> getTodayHabits() {
+        MutableLiveData<List<Habit>> todayHabitsLiveData = new MutableLiveData<>();
+        List<Habit> todayHabits = new ArrayList<>();
+
+        LocalDate today = LocalDate.now();
+        for (Habit habit : habits) {
+            if (isHabitActiveToday(habit, today)) {
+                todayHabits.add(habit);
+            }
+        }
+
+        todayHabitsLiveData.setValue(todayHabits);
+        return todayHabitsLiveData;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private boolean isHabitActiveToday(Habit habit, LocalDate today) {
+        LocalDate startedAt = habit.getStartedAt().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endedAt = habit.getEndedAt().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        return (startedAt.isEqual(today) || startedAt.isBefore(today)) &&
+                (endedAt.isEqual(today) || endedAt.isAfter(today));
     }
 
     @Override

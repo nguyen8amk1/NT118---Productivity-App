@@ -28,6 +28,12 @@ public class HabitRepository_RoomDB implements iHabitRepository {
     }
 
     @Override
+    public LiveData<List<Habit>> getTodayHabits() {
+        assert(false);
+        return null;
+    }
+
+    @Override
     public LiveData<Habit> getHabit(long habitId) {
         return habitDao.get(habitId);
     }

@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface iHabitRepository {
     LiveData<List<Habit>> getAllHabits();
+    LiveData<List<Habit>> getTodayHabits();
     LiveData<Habit> getHabit(long habitId);
     LiveData<Long> countHabits();
     LiveData<Habit> getFirstStartedHabit();

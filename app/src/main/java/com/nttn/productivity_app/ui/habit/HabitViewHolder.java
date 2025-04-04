@@ -62,7 +62,11 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         }
         long currentTimeUpdateIntervalMillis = 3600_000;
         long countDownInterval = 1000;
+        Habit currentHabit = habitRecyclerViewAdapter
+                .getHabitList()
+                .get(getAbsoluteAdapterPosition());
         habitProgressTimer = new HabitProgressTimer(
+                currentHabit,
                 currentTimeUpdateIntervalMillis,
                 countDownInterval,
                 startedAt,
@@ -89,7 +93,6 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         Habit currentHabit = habitRecyclerViewAdapter
                 .getHabitList()
                 .get(getAbsoluteAdapterPosition());
-
         if (itemId == R.id.habit_row_card_layout) {
             onHabitClickListener.onHabitLongClick(currentHabit);
             return true;
@@ -102,9 +105,11 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         long countDownInterval;
         long startedAtTime;
         Context context;
+        Habit currentHabit;
 
-        public HabitProgressTimer(long millisInFuture, long countDownInterval, Date startedAt, Context context) {
+        public HabitProgressTimer(Habit currentHabit, long millisInFuture, long countDownInterval, Date startedAt, Context context) {
             super(millisInFuture, countDownInterval);
+            this.currentHabit = currentHabit;
             this.countDownInterval = countDownInterval;
             this.context = context;
 
@@ -123,9 +128,6 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         @Override
         public void onTick(long millisUntilFinished) {
-            Habit currentHabit = habitRecyclerViewAdapter
-                    .getHabitList()
-                    .get(getAbsoluteAdapterPosition());
             Date now = new Date();
             long timeLeftInMillis = currentHabit.endedAt.getTime() - now.getTime();
             if(currentTime > 0) {
