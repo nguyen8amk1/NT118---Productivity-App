@@ -1,17 +1,23 @@
 package com.nttn.productivity_app.ui.habit;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
 import com.nttn.productivity_app.model.Habit;
+import com.nttn.productivity_app.model.Todo;
+import com.nttn.productivity_app.util.DialogUtils;
 import com.nttn.productivity_app.util.ProgressTimeFormatter;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +30,9 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     final OnHabitClickListener onHabitClickListener;
     final HabitRecyclerViewAdapter habitRecyclerViewAdapter;
+    final Context context;
+
+    private boolean dialogShowed = false;
 
     public HabitViewHolder(@NotNull View itemView, HabitRecyclerViewAdapter habitRecyclerViewAdapter) {
         super(itemView);
@@ -34,6 +43,7 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         this.habitRecyclerViewAdapter = habitRecyclerViewAdapter;
         this.onHabitClickListener = habitRecyclerViewAdapter.getOnHabitClickListener();
+        this.context = itemView.getContext();
         itemView.findViewById(R.id.habit_row_card_layout).setOnClickListener(this);
         itemView.findViewById(R.id.habit_row_card_layout).setOnLongClickListener(this);
     }
@@ -46,7 +56,6 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         }
     }
 
-
     public void startProgressTimer(Date startedAt) {
         if (habitProgressTimer != null) {
             habitProgressTimer.cancel();
@@ -56,7 +65,8 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         habitProgressTimer = new HabitProgressTimer(
                 currentTimeUpdateIntervalMillis,
                 countDownInterval,
-                startedAt
+                startedAt,
+                context
         ).start();
     }
 
@@ -91,10 +101,12 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
         long currentTime;
         long countDownInterval;
         long startedAtTime;
+        Context context;
 
-        public HabitProgressTimer(long millisInFuture, long countDownInterval, Date startedAt) {
+        public HabitProgressTimer(long millisInFuture, long countDownInterval, Date startedAt, Context context) {
             super(millisInFuture, countDownInterval);
             this.countDownInterval = countDownInterval;
+            this.context = context;
 
             if (startedAt == null) {
                 startedAtTime = new Date().getTime();
@@ -116,8 +128,16 @@ public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnC
                     .get(getAbsoluteAdapterPosition());
             Date now = new Date();
             long timeLeftInMillis = currentHabit.endedAt.getTime() - now.getTime();
-            currentTime = timeLeftInMillis;
-            setHabitProgressTime(currentTime);
+            if(currentTime > 0) {
+                currentTime = timeLeftInMillis;
+                setHabitProgressTime(currentTime);
+            } else if(!dialogShowed){
+                currentTime = timeLeftInMillis;
+                setHabitProgressTime(currentTime);
+                AlertDialog alert = DialogUtils.getDeadlineDialog(currentHabit, context);
+                alert.show();
+                dialogShowed = true;
+            }
         }
 
         @Override

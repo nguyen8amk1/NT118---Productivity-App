@@ -91,10 +91,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Todo todo = new Todo("id", "title", "description", LocalDateTime.of(2025, 5, 20, 2, 2));
-        AlertDialog alert = DialogUtils.getDeadlineDialog(todo, this);
-        alert.show();
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

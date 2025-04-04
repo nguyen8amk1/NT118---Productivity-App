@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.nttn.productivity_app.R;
+import com.nttn.productivity_app.model.Habit;
 import com.nttn.productivity_app.model.Todo;
 
 public class DialogUtils {
@@ -41,7 +42,7 @@ public class DialogUtils {
         return alert11;
     }
 
-    static public AlertDialog getDeadlineDialog(Todo todo, Context context) {
+    static public AlertDialog getDeadlineDialog(Habit habit, Context context) {
         // Create a MediaPlayer to play the alarm sound
         MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.alarm_sound); // Ensure you have an alarm_sound.mp3 in res/raw
 
@@ -49,15 +50,15 @@ public class DialogUtils {
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.dialog_deadline_met, null);
 
-        // Set the todo information in the dialog
+        // Set the habit information in the dialog
         TextView titleTextView = dialogView.findViewById(R.id.dialog_title);
         TextView descriptionTextView = dialogView.findViewById(R.id.dialog_description);
         TextView deadlineTextView = dialogView.findViewById(R.id.dialog_deadline);
         ImageView alarmImageView = dialogView.findViewById(R.id.dialog_alarm_image);
 
-        titleTextView.setText(todo.getTitle());
-        descriptionTextView.setText(todo.getDescription());
-        deadlineTextView.setText("Deadline: " + todo.getDeadline().toString());
+        titleTextView.setText(habit.getTitle());
+        descriptionTextView.setText("Started at: " + habit.getStartedAt().toString());
+        deadlineTextView.setText("Ended at: " + habit.getEndedAt().toString());
         alarmImageView.setImageResource(R.drawable.alarm_clock);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Theme_ProductivityApp_Dialog);
