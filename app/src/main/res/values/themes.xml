@@ -1,78 +1,30 @@
-<resources>
-
-    <style name="Theme.ProductivityApp.DayNight" parent="Theme.ProductivityApp"/>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProductivityApp" parent="Theme.AppCompat.DayNight.DarkActionBar">
-
-        <!--Color-->
-        <item name="colorPrimary">@color/color_palette_blue_700</item>
-        <item name="colorPrimaryVariant">@color/color_palette_blue_800</item>
-        <item name="colorSecondary">@color/color_palette_orange_500</item>
-        <item name="colorSecondaryVariant">@color/color_palette_orange_400</item>
-
-        <item name="android:colorBackground">@color/color_palette_blue_50</item>
-        <item name="colorSurface">@color/color_palette_white_50</item>
-        <item name="colorPrimarySurfaceVariant">?attr/colorPrimaryVariant</item>
-        <item name="colorError">@color/color_palette_red_400</item>
-
-        <item name="colorOnPrimary">@color/color_palette_white_50</item>
-        <item name="colorOnSecondary">@color/color_palette_black_900</item>
-        <item name="colorOnBackground">@color/color_palette_black_900</item>
-        <item name="colorOnSurface">@color/color_palette_black_900</item>
-        <item name="colorOnError">@color/color_palette_black_900</item>
-
-        <item name="scrimBackground">@color/color_palette_white_50_alpha_060</item>
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
-        <item name="android:navigationBarColor">@color/nav_bar</item>
+    <style name="Theme.DoAnCoSo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/bg_color_2</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/text_title_color</item>
+        <item name="colorSecondaryVariant">@color/text_title_color</item>
+        <item name="colorOnSecondary">@color/text_title_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
         <!-- Customize your theme here. -->
-        <!-- <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
-
-        <!-- shapes -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Default.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Default.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Default.LargeComponent</item>
-
-        <!--Typography-->
-        <item name="textAppearanceHeadline2">@style/TextAppearance.Default.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.Default.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.Default.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.Default.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.Default.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.Default.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.Default.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.Default.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.Default.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.Default.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.Default.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.Default.Overline</item>
-
-        <item name="emphasisHighAlpha">0.87</item>
-        <item name="emphasisMediumAlpha">0.60</item>
-        <item name="emphasisDisabledAlpha">0.38</item>
-
-        <item name="motionInterpolatorPersistent">@android:interpolator/fast_out_slow_in</item>
-        <item name="motionInterpolatorIncoming">@android:interpolator/decelerate_cubic</item>
-        <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
     </style>
 
-    <style name="Theme.ProductivityApp.NoActionBar" parent="Theme.ProductivityApp.DayNight">
+    <style name="Theme.DoAnCoSo.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ProductivityApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.ProductivityApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="AppBottomSheetDialogTheme"
-        parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="AppModalStyle"
-        parent="Widget.Design.BottomSheet.Modal">
-        <item name="behavior_peekHeight">@dimen/bottom_sheet_peek_height</item>
-    </style>
+    <style name="Theme.DoAnCoSo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DoAnCoSo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

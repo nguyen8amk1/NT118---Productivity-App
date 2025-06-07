@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/action_search"
+    android:title="@string/title_search"
+    android:icon="@drawable/ic_baseline_search_24"
+    app:showAsAction="always"
+    app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+    <item android:id="@+id/menu_item_notification"
+        android:title="Thông báo"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/addition_menu"
+        android:title="Addition Menu"
+        android:icon="@drawable/ic_baseline_menu_24"
+        app:showAsAction="always"
+        />
+</menu>

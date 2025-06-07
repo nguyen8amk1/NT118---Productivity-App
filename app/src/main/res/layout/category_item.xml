@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_category_topic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:background="@color/bg_color">
+
+    <!-- Include layout -->
+    <include
+        android:id="@+id/category_function"
+        layout="@layout/funcion_item"
+     />
+
+    <!-- Main container for the category item -->
+    <LinearLayout
+        android:id="@+id/ln_category_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/bg_color"
+        android:orientation="vertical">
+
+        <!-- Category name -->
+        <TextView
+            android:id="@+id/tv_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:text="Category name"
+            android:textColor="@color/text_title_color"
+            android:textSize="18sp" />
+
+        <!-- Number of jobs container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <!-- "Number of job" text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/number_of_job"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <!-- Number of jobs -->
+            <TextView
+                android:id="@+id/tv_category_number_job"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:gravity="end"
+                android:text="00"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/text_title_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Divider line -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/sub_bg_color" />
+    </LinearLayout>
+</RelativeLayout>

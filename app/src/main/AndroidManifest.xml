@@ -1,31 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nttn.productivity_app" >
+    package="com.ctk43.doancoso">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application
+        android:name=".Application.myApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_final"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProductivityApp.DayNight" >
-        <activity android:name=".ui.SettingsActivity"
-            android:label="Settings"
-            android:parentActivityName=".ui.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
         <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ProductivityApp.NoActionBar" >
+            android:name=".View.Activity.SplashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".View.Activity.MainActivity"
+            android:theme="@style/Theme.DoAnCoSo"
+           />
+        <activity android:name=".View.Activity.JobActivity"
+            android:theme="@style/Theme.DoAnCoSo"
+            />
+        <activity
+            android:name=".View.Activity.AddJobActivity"
+            android:parentActivityName=".View.Activity.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".View.Activity.AddJobDetailActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".View.Activity.JobDetailActivity"
+            android:exported="true"
+            android:label="@string/title_activity_job_deltail"
+            android:theme="@style/Theme.DoAnCoSo" />
+        <activity android:name=".View.Activity.CategoryManagementActivity"
+            android:theme="@style/Theme.DoAnCoSo"/>
+        <activity android:name=".View.Activity.NotificationManagementActivity" />
+
+        <service android:name=".Service.CountUpService" />
+        <service android:name=".Service.NotificationService" />
+        <service android:name=".Service.NotificationJobService" />
+        <receiver android:name=".Service.CountUpReceiver" />
     </application>
 
 </manifest>

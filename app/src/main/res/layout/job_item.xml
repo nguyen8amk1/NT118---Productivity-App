@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_topic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:background="@color/bg_color">
+
+    <!-- Include layout -->
+    <include
+        android:id="@+id/job_funcion"
+        layout="@layout/funcion_item"/>
+
+    <!-- Main container for the job item -->
+    <LinearLayout
+        android:id="@+id/item_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10"
+            android:orientation="horizontal">
+
+            <!-- Job details section -->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7.5"
+                android:paddingEnd="10dp">
+
+                <LinearLayout
+                    android:id="@+id/ln_job"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <!-- Priority image -->
+                    <ImageView
+                        android:id="@+id/img_priority"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_star_24"/>
+
+                    <!-- Job name -->
+                    <TextView
+                        android:id="@+id/tv_job_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="9"
+                        android:text="Tên Công Việc"
+                        android:textColor="@color/text_title_color"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <!-- Checkbox for finished job -->
+                <CheckBox
+                    android:id="@+id/chk_finish_job"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="2dp"
+                    android:buttonTint="@color/green_02"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"/>
+
+                <!-- Job description -->
+                <TextView
+                    android:id="@+id/tv_job_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ln_job"
+                    android:layout_marginTop="5dp"
+                    android:padding="2dp"
+                    android:text="Mô tả công việc"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+                <!-- Time details -->
+                <LinearLayout
+                    android:id="@+id/time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_job_description"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_remaining"
+                        android:paddingStart="14dp"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_remainning_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:text="@string/testdate"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Progress bar section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:orientation="vertical"
+                android:paddingEnd="10dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/prg_progress"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:indeterminateOnly="false"
+                        android:max="100"
+                        android:progress="60"
+                        android:progressDrawable="@drawable/prg_circle"/>
+
+                    <TextView
+                        android:id="@+id/tv_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="100%"
+                        android:textColor="@color/green_03"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="abc"
+                    android:textColor="@color/green_01"
+                    android:textSize="11sp"
+                    android:paddingTop="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Divider line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/sub_bg_color"/>
+    </LinearLayout>
+</RelativeLayout>
