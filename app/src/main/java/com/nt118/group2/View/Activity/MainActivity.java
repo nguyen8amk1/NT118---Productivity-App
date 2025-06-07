@@ -113,24 +113,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                switch (id) {
-                    case R.id.menu_job:
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case R.id.menu_month:
-                        viewPager.setCurrentItem(1);
-                        break;
-//                    case R.id.menu_setting:
-//                        viewPager.setCurrentItem(2);
-//                        break;
-                    case R.id.menu_account:
-                        viewPager.setCurrentItem(3);
-                        break;
-                    case R.id.menu_add_new_job:
-                        Intent intent = new Intent(MainActivity.this, AddJobActivity.class);
-                        startActivity(intent);
-                        SelectBottomMenuPosition(0);
-                        break;
+                if (id == R.id.menu_job) {
+                    viewPager.setCurrentItem(0);
+                } else if (id == R.id.menu_month) {
+                    viewPager.setCurrentItem(1);
+                } else if (id == R.id.menu_account) {
+                    viewPager.setCurrentItem(3);
+                } else if (id == R.id.menu_add_new_job) {
+                    Intent intent = new Intent(MainActivity.this, AddJobActivity.class);
+                    startActivity(intent);
+                    SelectBottomMenuPosition(0);
                 }
                 return true;
             }

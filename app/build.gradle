@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    namespace 'com.nt118.group2'
     compileSdk 31
 
     defaultConfig {
