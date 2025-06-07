@@ -12,7 +12,7 @@
 
     <include
         android:id="@+id/job_funcion"
-        layout="@layout/funcion_item"
+        layout="@layout/function_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

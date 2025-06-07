@@ -44,7 +44,11 @@ public class NotificationJobService extends Service {
         int idJob = intent.getIntExtra(Key.SEND_NOTIFICATION_JOB_ID,0);
         if(idJob!=0){
             initViewModel(idJob);
-            sendNotification();
+            try {
+                sendNotification();
+            } catch(Exception e) {
+                System.out.println(e);
+            }
         }
         return super.onStartCommand(intent, flags, startId);
     }

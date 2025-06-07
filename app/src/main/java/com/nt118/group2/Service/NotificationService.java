@@ -143,7 +143,7 @@ public class NotificationService extends Service {
         remoteViews.setTextViewText(R.id.tv_content, contentText());
         mBuilder = new NotificationCompat.Builder(this, Key.CHANNEL_NOTIFICATION)
                 .setSmallIcon(R.drawable.logo_final)
-                .setSilent(true)
+                .setSilent(false)
                 .setAutoCancel(true)
                 .setCustomContentView(remoteViews);
         startForeground(Key.CHANNEL_NOTIFICATION_JOB_ID, mBuilder.build());

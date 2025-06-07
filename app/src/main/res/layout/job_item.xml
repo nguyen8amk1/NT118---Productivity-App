@@ -7,11 +7,6 @@
     android:layout_marginHorizontal="10dp"
     android:background="@color/bg_color">
 
-    <!-- Include layout -->
-    <include
-        android:id="@+id/job_funcion"
-        layout="@layout/funcion_item"/>
-
     <!-- Main container for the job item -->
     <LinearLayout
         android:id="@+id/item_job"
@@ -160,6 +155,12 @@
                     android:paddingTop="5dp"/>
             </LinearLayout>
         </LinearLayout>
+
+        <!-- Include layout -->
+        <include
+            android:id="@+id/job_funcion"
+            layout="@layout/function_item"/>
+
 
         <!-- Divider line -->
         <View

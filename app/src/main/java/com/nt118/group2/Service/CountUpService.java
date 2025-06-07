@@ -147,7 +147,7 @@ public class CountUpService extends Service {
         notification = new NotificationCompat.Builder(this, Key.CHANNEL_COUNT_UP)
                 .setSmallIcon(R.drawable.ic_notifications)
                 .setContentIntent(pendingIntent)
-                .setSilent(true)
+                .setSilent(false)
                 .setAutoCancel(true)
                 .setContent(remoteViews)
                 .build();

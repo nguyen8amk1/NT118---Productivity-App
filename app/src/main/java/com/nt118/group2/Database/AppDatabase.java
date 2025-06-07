@@ -104,7 +104,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     new Category("Học tập","default@example.vn"),
                     new Category("Giải trí","default@example.vn"));
 
-            jobDAO.insert(new Job(1, "Làm đồ án", CalendarExtension.getEndDateOfWeek(start,-1), CalendarExtension.getEndDateOfWeek(start,0), "Một môn học gây trầm cảm"));
+            jobDAO.insert(new Job(1, "What the hell", CalendarExtension.getEndDateOfWeek(start,-1), CalendarExtension.getEndDateOfWeek(start,0), "Một môn học gây trầm cảm"));
             jobDAO.insert(new Job(1, "Làm lab 8", CalendarExtension.getDateStartOfMonth(2,2022),CalendarExtension.getDateEndOfMonth(5,2022) , "Không hiểu j hết á"));
             jobDAO.insert(new Job(1, "Làm lab 9", CalendarExtension.getDateStartOfMonth(3,2022), CalendarExtension.getDateEndOfMonth(3,2022), "Từ chối hiểu"));
             jobDAO.insert(new Job(1, "Làm web", CalendarExtension.getDateStartOfMonth(4,2022), CalendarExtension.getDateEndOfMonth(4,2022), "Làm kiểu j á"));
@@ -139,7 +139,6 @@ public abstract class AppDatabase extends RoomDatabase {
             jobDAO.insert(new Job(2, "Ghi cho có", CalendarExtension.getStartTimeOfWeek(start,-2), CalendarExtension.getEndTimeOfWeek(start,0), "Ghi cho có"));
             jobDAO.insert(new Job(2, "Đây là một ví dụ",  CalendarExtension.getStartTimeOfWeek(start,-3), CalendarExtension.getEndTimeOfWeek(start,1), "Chỉ là một ví dụ"));
 
-            jobDetailDAO.insert(new JobDetail(1, "Tìm hiểu android", 270, "Android là gì? tôi là ai ai là tôi, thế gian kiếm android android kiếm ios, window phone is dead like a wind"));
             jobDetailDAO.insert(new JobDetail(1, "Tìm hiểu SQLite", 270, "Tìm hiểu thôi"));
             jobDetailDAO.insert(new JobDetail(1, "Làm app demo", 270, "Làm kiểu j á",true));
             jobDetailDAO.insert(new JobDetail(1, "Ghi j bây giờ", 270, "Ghi cho có vậy"));

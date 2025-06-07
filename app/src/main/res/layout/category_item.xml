@@ -10,7 +10,7 @@
     <!-- Include layout -->
     <include
         android:id="@+id/category_function"
-        layout="@layout/funcion_item"
+        layout="@layout/function_item"
      />
 
     <!-- Main container for the category item -->
