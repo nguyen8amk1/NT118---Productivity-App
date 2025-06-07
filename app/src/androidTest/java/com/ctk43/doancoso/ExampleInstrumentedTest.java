@@ -1,4 +1,4 @@
-package com.ctk43.doancoso;
+package com.nt118.group2;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.ctk43.doancoso", appContext.getPackageName());
+        assertEquals("com.nt118.group2", appContext.getPackageName());
     }
 }

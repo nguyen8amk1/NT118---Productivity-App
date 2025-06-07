@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ctk43.doancoso">
+    package="com.nt118.group2">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application
@@ -22,10 +22,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.Activity.MainActivity"
-            android:theme="@style/Theme.DoAnCoSo"
+            android:theme="@style/Theme.ProductivityApp"
            />
         <activity android:name=".View.Activity.JobActivity"
-            android:theme="@style/Theme.DoAnCoSo"
+            android:theme="@style/Theme.ProductivityApp"
             />
         <activity
             android:name=".View.Activity.AddJobActivity"
@@ -38,9 +38,9 @@
             android:name=".View.Activity.JobDetailActivity"
             android:exported="true"
             android:label="@string/title_activity_job_deltail"
-            android:theme="@style/Theme.DoAnCoSo" />
+            android:theme="@style/Theme.ProductivityApp" />
         <activity android:name=".View.Activity.CategoryManagementActivity"
-            android:theme="@style/Theme.DoAnCoSo"/>
+            android:theme="@style/Theme.ProductivityApp"/>
         <activity android:name=".View.Activity.NotificationManagementActivity" />
 
         <service android:name=".Service.CountUpService" />
