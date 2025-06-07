@@ -13,7 +13,6 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.nttn.productivity_app.R;
 import com.nttn.productivity_app.model.Habit;
-import com.nttn.productivity_app.model.Todo;
 
 public class DialogUtils {
     @NonNull

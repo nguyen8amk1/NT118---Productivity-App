@@ -6,12 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
 import com.nttn.productivity_app.R;
-import com.nttn.productivity_app.model.Todo;
 import com.nttn.productivity_app.ui.habit.HabitBottomSheetFragment;
 import com.nttn.productivity_app.ui.habit.HabitViewModel;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
@@ -20,7 +18,6 @@ import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -28,7 +25,6 @@ import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -40,9 +36,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 import static com.nttn.productivity_app.util.Utils.setThemeNightMode;
-import com.nttn.productivity_app.util.DialogUtils;
-
-import java.time.LocalDateTime;
 
 // Layout Inflation: Convert xml object to view object, by calling inflater.inflate(xml object, );
 // In Recycler view:

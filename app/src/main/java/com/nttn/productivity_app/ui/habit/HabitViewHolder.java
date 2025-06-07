@@ -1,7 +1,6 @@
 package com.nttn.productivity_app.ui.habit;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
@@ -11,15 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nttn.productivity_app.R;
 import com.nttn.productivity_app.model.Habit;
-import com.nttn.productivity_app.model.Todo;
 import com.nttn.productivity_app.util.DialogUtils;
 import com.nttn.productivity_app.util.ProgressTimeFormatter;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class HabitViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 

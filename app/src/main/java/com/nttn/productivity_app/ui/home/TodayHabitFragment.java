@@ -40,7 +40,8 @@ public class TodayHabitFragment extends Fragment implements OnHabitClickListener
     private HabitRecyclerViewAdapter habitRecyclerViewAdapter;
     private HabitAndroidViewModel habitAndroidViewModel;
     private HabitViewModel habitViewModel;
-    private iHabitRepository habitRepository = HabitRepository_InMemory.getInstance();
+    private iHabitRepository habitRepository = HabitRepository_InMemory.getInstance(
+
 
 
     @Override
