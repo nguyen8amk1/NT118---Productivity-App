@@ -66,18 +66,19 @@ public class JobActivity extends AppCompatActivity {
         jobViewModel.setData(this);
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private void init(){
         jobFragment = new JobFragment();
         jobFragment.setJobs(jobs);
         getSupportFragmentManager().beginTransaction().add(R.id.layout_jobs,jobFragment).commit();
-        ImageButton img_btn_filter = findViewById(R.id.img_btn_filter);
-        ImageButton img_btn_convert = findViewById(R.id.img_btn_convert);
+//        ImageButton img_btn_filter = findViewById(R.id.img_btn_filter);
+//        ImageButton img_btn_convert = findViewById(R.id.img_btn_convert);
         Spinner spn_category = findViewById(R.id.spn_category);
         FloatingActionButton fab_add_job =findViewById(R.id.fab_add_job);
         ArrayAdapter adapter_spn = new ArrayAdapter(JobActivity.this, android.R.layout.simple_spinner_item, Collections.singletonList((name))) ;
         adapter_spn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spn_category.setAdapter(adapter_spn);
-        img_btn_filter.setOnClickListener(new View.OnClickListener() {
+        /*img_btn_filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogExtension.showDialogFilterJob(JobActivity.this, dateToDate,jobFragment.getAdapter());
@@ -91,7 +92,7 @@ public class JobActivity extends AppCompatActivity {
                 adapter.Revert();
             }
         });
-        if(dateToDate)
+ */       if(dateToDate)
         fab_add_job.setOnClickListener(v -> {
             Intent intent = new Intent(this,AddJobActivity.class);
             startActivity(intent);

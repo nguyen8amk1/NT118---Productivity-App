@@ -65,8 +65,8 @@ public class ManagerJobFragment extends Fragment {
     }
 
     private void InnitView(View view) {
-        ImageButton img_btn_filter = view.findViewById(R.id.img_btn_filter);
-        ImageButton img_btn_convert = view.findViewById(R.id.img_btn_convert);
+//        ImageButton img_btn_filter = view.findViewById(R.id.img_btn_filter);
+//        ImageButton img_btn_convert = view.findViewById(R.id.img_btn_convert);
         Spinner spn_category = view.findViewById(R.id.spn_category);
         categories = categoryViewModel.getCategoryView();
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item,categories) ;
@@ -96,21 +96,21 @@ public class ManagerJobFragment extends Fragment {
             }
         });
         spn_category.setSelection(1);
-        img_btn_filter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getJobFragment();
-                DialogExtension.showDialogFilterJob(getContext(),false,jobFragment.getAdapter());
-            }
-        });
-
-        img_btn_convert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getJobFragment();
-                jobFragment.getAdapter().Revert();
-            }
-        });
+//        img_btn_filter.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getJobFragment();
+//                DialogExtension.showDialogFilterJob(getContext(),false,jobFragment.getAdapter());
+//            }
+//        });
+//
+//        img_btn_convert.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getJobFragment();
+//                jobFragment.getAdapter().Revert();
+//            }
+//        });
     }
     public JobFragment getJobFragment(){
         return jobFragment = (JobFragment) adapterManager.getHashMap().get(viewPager.getCurrentItem());

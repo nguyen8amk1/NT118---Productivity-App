@@ -132,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_month:
                         viewPager.setCurrentItem(1);
                         break;
-                    case R.id.menu_setting:
-                        viewPager.setCurrentItem(2);
-                        break;
+//                    case R.id.menu_setting:
+//                        viewPager.setCurrentItem(2);
+//                        break;
                     case R.id.menu_account:
                         viewPager.setCurrentItem(3);
                         break;
