@@ -36,7 +36,7 @@ public class JobActivity extends AppCompatActivity {
     ViewPager2 viewPager;
     String name;
     private SearchView searchView;
-    private MenuItem addition_menu;
+//    private MenuItem addition_menu;
     private MenuItem notificationManagement;
     JobFragment jobFragment;
     boolean dateToDate;
@@ -110,14 +110,14 @@ public class JobActivity extends AppCompatActivity {
                 return false;
             }
         });
-        addition_menu = menu.findItem(R.id.addition_menu);
-        addition_menu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                DialogExtension.onOpenMenuDialog(JobActivity.this);
-                return true;
-            }
-        });
+//        addition_menu = menu.findItem(R.id.addition_menu);
+//        addition_menu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                DialogExtension.onOpenMenuDialog(JobActivity.this);
+//                return true;
+//            }
+//        });
         notificationManagement = menu.findItem(R.id.menu_item_notification);
         notificationManagement.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override

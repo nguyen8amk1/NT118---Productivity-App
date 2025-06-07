@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private int dlg_mode = 0;
     ViewPagerAdapter viewPagerAdapter;
     private SearchView searchView;
-    private MenuItem addition_menu;
+//    private Button import_from_ics;
     private MenuItem notificationManagement;
 
     @Override
@@ -50,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
+//        Button importFromIcs = findViewById(R.id.import_from_ics);
+//        importFromIcs.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                System.out.println(view);
+////                assert(false);
+//            }
+//        });
+////
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -68,15 +79,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        addition_menu = menu.findItem(R.id.addition_menu);
-        addition_menu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                DialogExtension.onOpenMenuDialog(MainActivity.this);
-                return true;
-            }
-        });
+//        import_from_ics = menu.findItem(R.id.import_from_ics);
+//        import_from_ics
+//        import_from_ics.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                DialogExtension.onOpenMenuDialog(MainActivity.this);
+//                return true;
+//            }
+//        });
         notificationManagement = menu.findItem(R.id.menu_item_notification);
         updateNotification();
         notificationManagement.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

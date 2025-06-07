@@ -62,7 +62,7 @@ public class JobDetailActivity extends AppCompatActivity {
     private TextView tv_Total;
 
     private SearchView searchView;
-    private MenuItem addition_menu;
+//    private MenuItem addition_menu;
     private MenuItem notificationManagement;
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -200,14 +200,14 @@ public class JobDetailActivity extends AppCompatActivity {
                 return false;
             }
         });
-        addition_menu = menu.findItem(R.id.addition_menu);
-        addition_menu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                DialogExtension.onOpenMenuDialog(JobDetailActivity.this);
-                return true;
-            }
-        });
+//        addition_menu = menu.findItem(R.id.addition_menu);
+//        addition_menu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                DialogExtension.onOpenMenuDialog(JobDetailActivity.this);
+//                return true;
+//            }
+//        });
         notificationManagement = menu.findItem(R.id.menu_item_notification);
         updateNotification();
         notificationManagement.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

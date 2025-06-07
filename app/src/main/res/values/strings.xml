@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quản lý nhắc việc</string>
+    <string name="app_name">Productivity App</string>
 
     <!--Hint-->
     <string name="hint_job_name">Nhập tên công việc</string>

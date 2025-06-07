@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_baseline_notifications_24"
         app:showAsAction="always"
         />
-    <item android:id="@+id/addition_menu"
-        android:title="Addition Menu"
-        android:icon="@drawable/ic_baseline_menu_24"
-        app:showAsAction="always"
-        />
+<!--    <item android:id="@+id/import_from_ics"-->
+<!--        android:title="Import from Ics"-->
+<!--        android:icon="@drawable/ic_baseline_menu_24"-->
+<!--        app:showAsAction="always"-->
+<!--        />-->
 </menu>
