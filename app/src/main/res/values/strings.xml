@@ -80,7 +80,7 @@
     <string name="estimal_time">Thời gian dự kiến</string>
     <string name="time_remaining">Còn lại: </string>
     <string name="time_over">Đã kết thúc:</string>
-    <string name="time">Thời gian:</string>
+    <string name="time">Thời gian còn lại:</string>
 
     <!--Count Up-->
     <string name="pause">Tạm dừng</string>

@@ -49,7 +49,6 @@ public class NotificationService extends Service {
     int going = 0;
     int over = 0;
 
-
     @Override
     public void onCreate() {
         super.onCreate();
